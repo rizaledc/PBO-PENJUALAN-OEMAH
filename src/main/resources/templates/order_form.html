@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Rumah</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+        }
+        .order-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .order-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .order-header h1 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .order-header p {
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="order-container">
+                    <div class="order-header">
+                        <h1>Form Pemesanan Rumah</h1>
+                        <p>Silakan lengkapi data pemesanan Anda</p>
+                    </div>
+                    <form action="/order" method="POST">
+                        <div class="mb-3">
+                            <label for="houseType" class="form-label">Tipe Rumah</label>
+                            <select class="form-select" id="houseType" name="houseType" required>
+                                <option value="">Pilih Tipe Rumah</option>
+                                <option value="TYPE_36">Tipe 36</option>
+                                <option value="TYPE_47">Tipe 47</option>
+                                <option value="TYPE_57">Tipe 57</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="region" class="form-label">Lokasi</label>
+                            <select class="form-select" id="region" name="region" required>
+                                <option value="">Pilih Lokasi</option>
+                                <option value="TABANAN">Tabanan</option>
+                                <option value="PURWOREJO">Purworejo</option>
+                                <option value="PURWOKERTO">Purwokerto</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="paymentType" class="form-label">Tipe Pembayaran</label>
+                            <select class="form-select" id="paymentType" name="paymentType" required>
+                                <option value="">Pilih Tipe Pembayaran</option>
+                                <option value="CASH">Cash</option>
+                                <option value="INSTALLMENTS">Kredit</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="downPayment" class="form-label">Uang Muka</label>
+                            <input type="number" class="form-control" id="downPayment" name="downPayment" required>
+                        </div>
+                        <div class="mb-3" id="installmentPeriodGroup" style="display: none;">
+                            <label for="installmentPeriod" class="form-label">Periode Kredit (bulan)</label>
+                            <input type="number" class="form-control" id="installmentPeriod" name="installmentPeriod">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
+                            <a href="/dashboard" class="btn btn-secondary">Kembali ke Dashboard</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('paymentType').addEventListener('change', function() {
+            const installmentPeriodGroup = document.getElementById('installmentPeriodGroup');
+            if (this.value === 'INSTALLMENTS') {
+                installmentPeriodGroup.style.display = 'block';
+                document.getElementById('installmentPeriod').required = true;
+            } else {
+                installmentPeriodGroup.style.display = 'none';
+                document.getElementById('installmentPeriod').required = false;
+            }
+        });
+    </script>
+</body>
+</html> 

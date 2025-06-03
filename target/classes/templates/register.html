@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi - Sistem Penjualan Rumah</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        .register-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .register-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .error-message {
+            color: #dc3545;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-header">
+            <h2>Sistem Penjualan Rumah</h2>
+            <p class="text-muted">Buat akun baru</p>
+        </div>
+
+        <div th:if="${error}" class="error-message" th:text="${error}"></div>
+
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="fullName" class="form-label">Nama Lengkap</label>
+                    <input type="text" class="form-control" id="fullName" th:field="*{fullName}" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="phone" class="form-label">Nomor Telepon</label>
+                    <input type="tel" class="form-control" id="phone" th:field="*{phone}" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="address" class="form-label">Alamat</label>
+                    <input type="text" class="form-control" id="address" th:field="*{address}" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" th:field="*{username}" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <select class="form-select" id="role" th:field="*{role}" required>
+                        <option value="BUYER">Pembeli</option>
+                        <option value="SELLER">Penjual</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" th:field="*{password}" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Daftar</button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <p>Sudah punya akun? <a th:href="@{/login}">Login di sini</a></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
