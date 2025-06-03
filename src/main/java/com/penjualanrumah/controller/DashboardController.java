@@ -22,4 +22,9 @@ public class DashboardController {
         
         return "redirect:/login";
     }
+
+    @GetMapping("/buyer/dashboard")
+    public String buyerDashboard() {
+        return "buyer_dashboard";
+    }
 } 

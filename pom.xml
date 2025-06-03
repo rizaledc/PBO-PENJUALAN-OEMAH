@@ -134,6 +134,9 @@
                 <configuration>
                     <source>21</source>  <!-- Java source version -->
                     <target>21</target>  <!-- Java target version -->
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
 

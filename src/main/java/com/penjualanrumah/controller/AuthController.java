@@ -18,9 +18,10 @@ public class AuthController {
     private UserService userService;
 
     @GetMapping("/login")
-    public String loginPage(@RequestParam(required = false) String error,
-                          @RequestParam(required = false) String logout,
-                          Model model) {
+    public String loginPage(
+            @RequestParam(value = "error", required = false) String error,
+            @RequestParam(value = "logout", required = false) String logout,
+            Model model) {
         if (error != null) {
             model.addAttribute("error", "Username atau password salah");
         }
@@ -38,7 +39,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user,
-                             @RequestParam String confirmPassword,
+                             @RequestParam("confirmPassword") String confirmPassword,
                              RedirectAttributes redirectAttributes) {
         try {
             if (!user.getPassword().equals(confirmPassword)) {
