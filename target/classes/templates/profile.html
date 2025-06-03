@@ -80,9 +80,9 @@
                             <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
                         </div>
                         <div class="col-md-9">
-                            <h2>[Nama Pengguna]</h2>
-                            <p class="mb-0"><i class="bi bi-envelope"></i> email@example.com</p>
-                            <p class="mb-0"><i class="bi bi-telephone"></i> +62 812-3456-7890</p>
+                            <h2 th:text="${user.fullName}">[Nama Pengguna]</h2>
+                            <p class="mb-0"><i class="bi bi-envelope"></i> <span th:text="${user.email}">email@example.com</span></p>
+                            <p class="mb-0"><i class="bi bi-telephone"></i> <span th:text="${user.phone}">+62 812-3456-7890</span></p>
                         </div>
                     </div>
                 </div>
@@ -96,21 +96,20 @@
                                 <form>
                                     <div class="mb-3">
                                         <label class="form-label">Nama Lengkap</label>
-                                        <input type="text" class="form-control" value="[Nama Pengguna]">
+                                        <input type="text" class="form-control" th:value="${user.fullName}" readonly>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" value="email@example.com">
+                                        <input type="email" class="form-control" th:value="${user.email}" readonly>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Nomor Telepon</label>
-                                        <input type="tel" class="form-control" value="+62 812-3456-7890">
+                                        <input type="tel" class="form-control" th:value="${user.phone}" readonly>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Alamat</label>
-                                        <textarea class="form-control" rows="3">Jl. Contoh No. 123, Kota</textarea>
+                                        <textarea class="form-control" rows="3" th:text="${user.address}" readonly></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                 </form>
                             </div>
                         </div>
@@ -145,24 +144,21 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>No</th>
                                                 <th>Tipe Rumah</th>
                                                 <th>Status</th>
                                                 <th>Tanggal</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>#ORD001</td>
-                                                <td>Tipe 36</td>
+                                            <tr th:each="order, iterStat : ${orders}">
+                                                <td th:text="${iterStat.count}"></td>
+                                                <td th:text="${order.houseType}"></td>
                                                 <td><span class="badge bg-warning">Pending</span></td>
-                                                <td>2024-03-15</td>
+                                                <td th:text="${#dates.format(order.orderDate, 'dd-MM-yyyy')}"></td>
                                             </tr>
-                                            <tr>
-                                                <td>#ORD002</td>
-                                                <td>Tipe 45</td>
-                                                <td><span class="badge bg-success">Approved</span></td>
-                                                <td>2024-03-10</td>
+                                            <tr th:if="${orders.size()} == 0">
+                                                <td colspan="4" class="text-center">Belum ada pesanan.</td>
                                             </tr>
                                         </tbody>
                                     </table>
