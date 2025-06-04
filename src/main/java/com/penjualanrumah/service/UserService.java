@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -16,13 +18,9 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
     public User registerUser(User user) {
-        // Check if username already exists
-        if (userRepository.findByUsername(user.getUsername()) != null) {
-            throw new RuntimeException("Username sudah digunakan");
-        }
-
         // Check if email already exists
-        if (userRepository.findByEmail(user.getEmail()) != null) {
+        Optional<User> existingUser = userRepository.findByEmail(user.getEmail());
+        if (existingUser.isPresent()) {
             throw new RuntimeException("Email sudah digunakan");
         }
 
@@ -33,8 +31,9 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email)
+            .orElseThrow(() -> new RuntimeException("User tidak ditemukan"));
     }
 }
 

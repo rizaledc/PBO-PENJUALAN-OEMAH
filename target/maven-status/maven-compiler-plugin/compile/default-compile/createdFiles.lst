@@ -9,9 +9,11 @@ com\penjualanrumah\service\CustomUserDetailsService.class
 com\penjualanrumah\model\Order$HouseType.class
 com\penjualanrumah\model\User.class
 com\penjualanrumah\repository\OrderHistoryRepository.class
+com\penjualanrumah\controller\PageController.class
 com\penjualanrumah\model\Order$PaymentType.class
 com\penjualanrumah\repository\UserRepository.class
 com\penjualanrumah\repository\OrderRepository.class
+com\penjualanrumah\config\WebConfig.class
 com\penjualanrumah\controller\DashboardController.class
 com\penjualanrumah\model\Order$Region.class
 com\penjualanrumah\controller\AuthController.class
