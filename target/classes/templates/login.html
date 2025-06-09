@@ -1,119 +1,78 @@
-<!-- login.html -->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Sistem Penjualan Rumah</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background: linear-gradient(to right, #6a11cb, #2575fc); /* Contoh gradient */
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Contoh font */
-            color: #333;
-        }
-        .login-container {
-            background-color: rgba(255, 255, 255, 0.95); /* Background semi-transparan */
-            padding: 3rem;
-            border-radius: 15px; /* Sudut lebih membulat */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Shadow lebih kuat */
-            width: 100%;
-            max-width: 450px; /* Lebar container diperbesar */
-            backdrop-filter: blur(5px); /* Efek blur pada background di belakang container */
-        }
-        .login-header {
-            text-align: center;
-            margin-bottom: 2.5rem; /* Jarak bawah diperbesar */
-            color: #333;
-        }
-        .login-header h2 {
-            font-size: 2rem; /* Ukuran judul */
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        .login-header p {
-            color: #555;
-        }
-        .form-label {
-            font-weight: bold;
-        }
-        .form-control {
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            padding: 0.75rem 1rem;
-        }
-        .form-control:focus {
-            border-color: #2575fc;
-            box-shadow: 0 0 0 0.25rem rgba(37, 117, 252, 0.25);
-        }
-        .btn-primary {
-            background-color: #2575fc; /* Warna primary */
-            border-color: #2575fc;
-            padding: 0.75rem 1.5rem;
-            font-size: 1.1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #1a5bb5;
-            border-color: #1a5bb5;
-        }
-        .text-center a {
-            color: #2575fc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .text-center a:hover {
-            color: #1a5bb5;
-            text-decoration: underline;
-        }
-        .error-message {
-            color: #dc3545;
-            text-align: center;
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-        .success-message {
-            color: #198754;
-            text-align: center;
-            margin-bottom: 1rem;
-            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
         }
     </style>
 </head>
-<body>
-    <div class="login-container">
-        <div class="login-header">
-            <h2>Sistem Penjualan Rumah</h2>
-            <p class="text-muted">Silakan login untuk melanjutkan</p>
+<body class="min-h-screen flex items-center justify-center text-gray-800">
+    <div class="w-full max-w-4xl bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden">
+        
+        <!-- Left Section -->
+        <div class="md:w-1/2 p-8 bg-blue-600 text-white relative">
+            <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/generative-ai-sandbox.appspot.com/o/image_79cc22.jpg-ee1a589c-96c2-473f-bab2-0273ad0a9d80?alt=media');"></div>
+            <div class="relative z-10">
+                <h2 class="text-3xl font-bold mb-4">Sistem Penjualan Rumah</h2>
+                <p class="text-lg mb-6">Percayakan proses pencarian properti Anda bersama kami.</p>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-yellow-300 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L3 9v12h18V9L12 2z"/></svg>
+                        Ragam pilihan properti berkualitas.
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-yellow-300 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
+                        Mitra developer dan agen terpercaya.
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-yellow-300 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10z"/></svg>
+                        Info KPR sesuai kebutuhan Anda.
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div th:if="${error}" class="error-message" th:text="${error}"></div>
-        <div th:if="${message}" class="success-message" th:text="${message}"></div>
+        <!-- Right Section - Login Form -->
+        <div class="md:w-1/2 p-8 flex flex-col justify-center">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">Login</h2>
+                <p class="text-gray-600 text-sm">Silakan login untuk melanjutkan</p>
+            </div>
 
-        <form th:action="@{/login}" method="post">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Login</button>
-            </div>
-        </form>
+            <!-- Pesan error/sukses -->
+            <div th:if="${error}" class="text-red-600 font-semibold text-center mb-4" th:text="${error}"></div>
+            <div th:if="${message}" class="text-green-600 font-semibold text-center mb-4" th:text="${message}"></div>
 
-        <div class="text-center mt-3">
-            <p>Belum punya akun? <a th:href="@{/register}">Daftar di sini</a></p>
+            <form th:action="@{/login}" method="post" class="space-y-5">
+                <div>
+                    <label for="username" class="block text-sm font-semibold text-gray-700">Username</label>
+                    <input type="text" id="username" name="username" required
+                           class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" required
+                           class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md transition duration-300">
+                    Login
+                </button>
+            </form>
+
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Belum punya akun?
+                <a th:href="@{/register}" class="text-blue-600 hover:text-blue-800 font-medium transition">Daftar di sini</a>
+            </p>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
