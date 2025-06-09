@@ -10,6 +10,10 @@ import com.penjualanrumah.service.UserService;
 import com.penjualanrumah.repository.OrderRepository;
 import java.util.List;
 import com.penjualanrumah.model.Order;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Controller
 public class UserController {
@@ -19,12 +23,15 @@ public class UserController {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @GetMapping("/user/order")
     public String showUserPage() {
         return "order_form";
     }
 
-    @GetMapping("/user/profile")
+    @GetMapping("/profile")
     public String userProfile(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         var user = userService.findByUsername(userDetails.getUsername());
         model.addAttribute("user", user);
@@ -35,5 +42,26 @@ public class UserController {
         model.addAttribute("orders", orders);
 
         return "profile";
+    }
+
+    @PostMapping("/profile/change-password")
+    public String changePassword(@AuthenticationPrincipal UserDetails userDetails,
+                                 @RequestParam("oldPassword") String oldPassword,
+                                 @RequestParam("newPassword") String newPassword,
+                                 @RequestParam("confirmPassword") String confirmPassword,
+                                 RedirectAttributes redirectAttributes) {
+        var user = userService.findByUsername(userDetails.getUsername());
+        if (!passwordEncoder.matches(oldPassword, user.getPassword())) {
+            redirectAttributes.addFlashAttribute("error", "Password lama salah");
+            return "redirect:/profile";
+        }
+        if (!newPassword.equals(confirmPassword)) {
+            redirectAttributes.addFlashAttribute("error", "Konfirmasi password tidak cocok");
+            return "redirect:/profile";
+        }
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userService.save(user);
+        redirectAttributes.addFlashAttribute("message", "Password berhasil diubah");
+        return "redirect:/profile";
     }
 }

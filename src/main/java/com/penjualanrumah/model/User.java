@@ -1,3 +1,4 @@
+
 package com.penjualanrumah.model;
 
 import jakarta.persistence.*;
