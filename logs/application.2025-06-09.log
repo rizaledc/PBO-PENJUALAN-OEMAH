@@ -1,0 +1,557 @@
+23:15:29.119 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+23:15:29.193 [main] INFO  c.p.PenjualanRumahApplication - Starting PenjualanRumahApplication using Java 21.0.7 with PID 7980 (C:\Tubes PBO\PBO-PENJUALAN-OEMAH\target\classes started by Wisnu Aji Sanjaya in C:\Tubes PBO\PBO-PENJUALAN-OEMAH)
+23:15:29.193 [main] DEBUG c.p.PenjualanRumahApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+23:15:29.193 [main] INFO  c.p.PenjualanRumahApplication - No active profile set, falling back to 1 default profile: "default"
+23:15:30.595 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+23:15:30.727 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 117 ms. Found 4 JPA repository interfaces.
+23:15:31.761 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+23:15:31.785 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-8080"]
+23:15:31.790 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+23:15:31.790 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+23:15:31.898 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:15:31.898 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2624 ms
+23:15:32.003 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.postgresql.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@33909752
+23:15:32.129 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+23:15:32.249 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+23:15:32.321 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+23:15:32.804 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+23:15:32.849 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+23:15:32.849 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+23:15:32.849 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+23:15:32.849 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+23:15:32.849 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+23:15:32.858 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+23:15:32.858 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+23:15:32.858 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+23:15:32.858 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+23:15:32.858 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+23:15:32.858 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+23:15:32.858 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.postgresql.Driver"
+23:15:32.858 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+23:15:32.858 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+23:15:32.858 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+23:15:32.862 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+23:15:32.863 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+23:15:32.863 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+23:15:32.863 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:postgresql://ep-winter-meadow-a1wq48oq-pooler.ap-southeast-1.aws.neon.tech:5432/Penjualan%20Rumah?sslmode=require&connectTimeout=30
+23:15:32.863 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+23:15:32.863 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+23:15:32.863 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+23:15:32.863 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................10
+23:15:32.867 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+23:15:32.868 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+23:15:32.868 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................10
+23:15:32.868 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+23:15:32.868 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+23:15:32.871 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+23:15:32.871 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+23:15:32.871 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+23:15:32.873 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+23:15:32.874 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+23:15:32.874 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+23:15:32.874 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"neondb_owner"
+23:15:32.875 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+23:15:32.875 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+23:15:34.701 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@d85b399
+23:15:34.701 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+23:15:34.817 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+23:15:34.881 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+23:15:35.631 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5d046c48
+23:15:36.602 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@53c39998
+23:15:36.811 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+23:15:37.551 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@57fc0738
+23:15:39.080 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@12fe93a3
+23:15:39.735 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+23:15:40.067 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@14d4865e
+23:15:40.246 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+23:15:40.482 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 15 mappings in 'requestMappingHandlerMapping'
+23:15:40.570 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+23:15:40.640 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6894436e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f2feab7, org.springframework.security.web.context.SecurityContextHolderFilter@88fc9cb, org.springframework.security.web.header.HeaderWriterFilter@202ba60a, org.springframework.web.filter.CorsFilter@8b71052, org.springframework.security.web.csrf.CsrfFilter@d827673, org.springframework.security.web.authentication.logout.LogoutFilter@fc6cac6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5d3d5242, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39a1c200, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@603a34e5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2738a1fc, org.springframework.security.web.access.ExceptionTranslationFilter@d15f031, org.springframework.security.web.access.intercept.AuthorizationFilter@31ecd003]
+23:15:40.740 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+23:15:40.790 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+23:15:40.981 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8080"]
+23:15:41.010 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+23:15:41.020 [main] INFO  c.p.PenjualanRumahApplication - Started PenjualanRumahApplication in 12.876 seconds (process running for 13.739)
+23:15:41.297 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72d16cec
+23:15:42.826 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@28b1d325
+23:15:44.417 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3f864e5e
+23:15:45.826 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@fd0c986
+23:15:45.841 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+23:15:58.768 [http-nio-0.0.0.0-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+23:15:58.768 [http-nio-0.0.0.0-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+23:15:58.768 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+23:15:58.768 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+23:15:58.768 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+23:15:58.768 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5a3d52a0
+23:15:58.768 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@5cfde2a4
+23:15:58.768 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+23:15:58.768 [http-nio-0.0.0.0-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+23:15:58.792 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /
+23:15:58.810 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:15:58.834 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/?continue to session
+23:15:58.834 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8080/login
+23:15:58.863 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+23:15:58.868 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+23:15:58.874 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+23:15:58.880 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:15:58.943 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:15:59.170 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:15:59.170 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:16:02.654 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+23:16:02.654 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:16:02.654 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8080/login
+23:16:02.656 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+23:16:02.656 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+23:16:02.661 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+23:16:02.661 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:16:02.669 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+23:16:02.680 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:16:02.680 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:16:04.822 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+23:16:04.822 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+23:16:15.282 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /login
+23:16:15.295 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.security.web.csrf.CsrfFilter - Invalid CSRF token found for http://localhost:8080/login
+23:16:15.295 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.s.w.a.AccessDeniedHandlerImpl - Responding with 403 status code
+23:16:15.298 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+23:16:15.298 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:16:15.298 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8080/login
+23:16:15.308 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+23:16:15.311 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+23:16:15.311 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+23:16:15.311 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:16:15.313 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:16:15.319 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:16:15.321 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:16:16.176 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+23:16:16.176 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:16:16.176 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8080/login
+23:16:16.184 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+23:16:16.184 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+23:16:16.184 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+23:16:16.184 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:16:16.184 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+23:16:16.193 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:16:16.193 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:16:34.831 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+23:16:34.831 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+23:16:36.934 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+23:16:36.934 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+23:16:36.934 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+23:16:36.947 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@d85b399: (connection evicted)
+23:16:37.143 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@5d046c48: (connection evicted)
+23:16:37.191 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@53c39998: (connection evicted)
+23:16:37.287 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@57fc0738: (connection evicted)
+23:16:37.644 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@12fe93a3: (connection evicted)
+23:16:37.758 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@14d4865e: (connection evicted)
+23:16:37.856 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@72d16cec: (connection evicted)
+23:16:37.922 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@28b1d325: (connection evicted)
+23:16:38.157 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@3f864e5e: (connection evicted)
+23:16:38.255 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@fd0c986: (connection evicted)
+23:16:38.381 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+23:16:38.386 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+23:50:48.294 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+23:50:48.351 [main] INFO  c.p.PenjualanRumahApplication - Starting PenjualanRumahApplication using Java 21.0.7 with PID 27256 (C:\Tubes PBO\PBO-PENJUALAN-OEMAH\target\classes started by Wisnu Aji Sanjaya in C:\Tubes PBO\PBO-PENJUALAN-OEMAH)
+23:50:48.352 [main] DEBUG c.p.PenjualanRumahApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+23:50:48.353 [main] INFO  c.p.PenjualanRumahApplication - No active profile set, falling back to 1 default profile: "default"
+23:50:49.627 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+23:50:49.711 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75 ms. Found 4 JPA repository interfaces.
+23:50:50.371 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+23:50:50.386 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-8080"]
+23:50:50.388 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+23:50:50.389 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+23:50:50.492 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:50:50.493 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2073 ms
+23:50:50.581 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.postgresql.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@33909752
+23:50:50.675 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+23:50:50.740 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+23:50:50.774 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+23:50:51.008 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+23:50:51.038 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+23:50:51.045 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+23:50:51.045 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+23:50:51.046 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+23:50:51.046 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+23:50:51.047 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+23:50:51.048 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+23:50:51.048 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+23:50:51.048 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+23:50:51.049 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+23:50:51.049 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+23:50:51.050 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.postgresql.Driver"
+23:50:51.050 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+23:50:51.051 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+23:50:51.051 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+23:50:51.052 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+23:50:51.052 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+23:50:51.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+23:50:51.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:postgresql://ep-winter-meadow-a1wq48oq-pooler.ap-southeast-1.aws.neon.tech:5432/Penjualan%20Rumah?sslmode=require&connectTimeout=30
+23:50:51.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+23:50:51.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+23:50:51.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+23:50:51.056 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................10
+23:50:51.057 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+23:50:51.057 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+23:50:51.057 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................10
+23:50:51.057 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+23:50:51.058 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+23:50:51.058 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+23:50:51.059 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+23:50:51.059 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+23:50:51.060 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+23:50:51.060 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+23:50:51.061 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+23:50:51.061 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"neondb_owner"
+23:50:51.061 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+23:50:51.062 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+23:50:52.613 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@432c0f1
+23:50:52.618 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+23:50:52.728 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+23:50:52.753 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+23:50:53.052 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3ef14df6
+23:50:53.374 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3036b458
+23:50:53.704 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@34092686
+23:50:53.897 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+23:50:54.054 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@710bbe63
+23:50:54.409 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3d700847
+23:50:54.679 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+23:50:54.763 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1124412c
+23:50:55.083 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5a54f3ca
+23:50:55.306 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+23:50:55.386 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1b7b3562
+23:50:55.523 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 15 mappings in 'requestMappingHandlerMapping'
+23:50:55.623 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+23:50:55.686 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7a25f8ee, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6e161cea, org.springframework.security.web.context.SecurityContextHolderFilter@51eeae0a, org.springframework.security.web.header.HeaderWriterFilter@2af1bf5a, org.springframework.web.filter.CorsFilter@673e1cf2, org.springframework.security.web.csrf.CsrfFilter@456c53a, org.springframework.security.web.authentication.logout.LogoutFilter@33efa7d4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1dc28c66, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@55589ef5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23a9400c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27a23d87, org.springframework.security.web.access.ExceptionTranslationFilter@603a34e5, org.springframework.security.web.access.intercept.AuthorizationFilter@2dc72c0c]
+23:50:55.773 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+23:50:55.809 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+23:50:55.919 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2674247a
+23:50:55.931 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+23:50:55.972 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8080"]
+23:50:55.995 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+23:50:56.006 [main] INFO  c.p.PenjualanRumahApplication - Started PenjualanRumahApplication in 8.412 seconds (process running for 9.029)
+23:50:57.668 [http-nio-0.0.0.0-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+23:50:57.668 [http-nio-0.0.0.0-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+23:50:57.669 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+23:50:57.669 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+23:50:57.669 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+23:50:57.670 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5e97da56
+23:50:57.670 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@71f86562
+23:50:57.670 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+23:50:57.671 [http-nio-0.0.0.0-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+23:50:57.687 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /
+23:50:57.698 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:50:57.724 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/?continue to session
+23:50:57.724 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8080/login
+23:50:57.742 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+23:50:57.743 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+23:50:57.745 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+23:50:57.747 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:50:57.785 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:50:58.203 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:50:58.203 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:50:59.584 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+23:50:59.584 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:50:59.584 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8080/login
+23:50:59.591 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+23:50:59.591 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+23:50:59.591 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+23:50:59.591 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:50:59.599 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+23:50:59.599 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:50:59.599 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:51:08.552 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /login
+23:51:09.056 [http-nio-0.0.0.0-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+23:51:09.251 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Failed to find user 'rizal123'
+23:51:09.257 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /login?error=true
+23:51:09.262 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login?error=true
+23:51:09.264 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login?error=true
+23:51:09.265 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login?error=true", parameters={masked}
+23:51:09.265 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:51:09.267 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:51:09.279 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:51:09.279 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:51:09.847 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+23:51:09.856 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:51:09.857 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8080/login
+23:51:09.864 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+23:51:09.868 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+23:51:09.868 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+23:51:09.868 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:51:09.877 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+23:51:09.894 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:51:09.897 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:51:22.737 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+23:51:22.737 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+23:51:52.747 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+23:51:52.747 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+23:52:08.112 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /login
+23:52:08.121 [http-nio-0.0.0.0-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+23:52:08.373 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+23:52:08.373 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 4BA3836B548C87D8E2877694F50C486D
+23:52:08.373 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+23:52:08.373 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@41a51605]
+23:52:08.373 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]
+23:52:08.373 [http-nio-0.0.0.0-8080-exec-9] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /dashboard
+23:52:08.384 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /dashboard
+23:52:08.384 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]]
+23:52:08.384 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /dashboard
+23:52:08.384 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard", parameters={}
+23:52:08.384 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.DashboardController#dashboard(Authentication)
+23:52:08.389 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.web.servlet.view.RedirectView - View name 'redirect:', model {}
+23:52:08.393 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 302 FOUND
+23:52:08.393 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /buyer/dashboard
+23:52:08.393 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]]
+23:52:08.393 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /buyer/dashboard
+23:52:08.393 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/buyer/dashboard", parameters={}
+23:52:08.393 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.DashboardController#buyerDashboard()
+23:52:08.393 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:52:08.448 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:52:08.541 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+23:52:08.544 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]]
+23:52:08.544 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /favicon.ico
+23:52:08.544 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/favicon.ico", parameters={}
+23:52:08.544 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+23:52:08.550 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+23:52:08.557 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+23:52:08.557 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+23:52:08.563 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+23:52:08.563 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]]
+23:52:08.563 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+23:52:08.563 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - "ERROR" dispatch for GET "/error", parameters={}
+23:52:08.563 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+23:52:08.572 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+23:52:08.587 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{timestamp=Mon Jun 09 23:52:08 WIB 2025, status=404, error=Not Found, message=No static resource fav (truncated)...]
+23:52:08.623 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Exiting from "ERROR" dispatch, status 404
+23:52:13.667 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /user/order
+23:52:13.667 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]]
+23:52:13.679 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /user/order
+23:52:13.679 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/user/order", parameters={}
+23:52:13.681 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.UserController#showUserPage()
+23:52:13.685 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:52:13.868 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:52:17.381 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /buyer/dashboard
+23:52:17.381 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]]
+23:52:17.381 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /buyer/dashboard
+23:52:17.381 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/buyer/dashboard", parameters={}
+23:52:17.389 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.DashboardController#buyerDashboard()
+23:52:17.392 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:52:17.412 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:52:18.429 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login?error=true
+23:52:18.429 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login?error=true
+23:52:18.437 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login?error=true", parameters={masked}
+23:52:18.437 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:52:18.441 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:52:18.455 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:52:18.455 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]]
+23:52:22.753 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+23:52:22.753 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+23:52:33.912 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /register
+23:52:33.912 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /register
+23:52:33.912 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/register", parameters={}
+23:52:33.912 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#registerPage(Model)
+23:52:33.928 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:52:34.060 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:52:34.060 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]]
+23:52:49.383 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+23:52:49.390 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+23:52:49.390 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+23:52:49.390 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:52:49.390 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:52:49.401 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:52:49.401 [http-nio-0.0.0.0-8080-exec-10] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA3836B548C87D8E2877694F50C486D], Granted Authorities=[ROLE_BUYER]]]
+23:52:52.766 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+23:52:52.766 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+23:53:22.773 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+23:53:22.773 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+23:53:37.500 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+23:53:37.500 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+23:53:37.500 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+23:53:37.500 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@432c0f1: (connection evicted)
+23:53:37.565 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@3ef14df6: (connection evicted)
+23:53:37.597 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@3036b458: (connection evicted)
+23:53:37.649 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@34092686: (connection evicted)
+23:53:37.679 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@710bbe63: (connection evicted)
+23:53:37.709 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@3d700847: (connection evicted)
+23:53:37.741 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@1124412c: (connection evicted)
+23:53:37.792 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@5a54f3ca: (connection evicted)
+23:53:37.820 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@1b7b3562: (connection evicted)
+23:53:37.836 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@2674247a: (connection evicted)
+23:53:37.883 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+23:53:37.883 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+23:58:27.914 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+23:58:27.975 [main] INFO  c.p.PenjualanRumahApplication - Starting PenjualanRumahApplication using Java 21.0.7 with PID 22100 (C:\Tubes PBO\PBO-PENJUALAN-OEMAH\target\classes started by Wisnu Aji Sanjaya in C:\Tubes PBO\PBO-PENJUALAN-OEMAH)
+23:58:27.977 [main] DEBUG c.p.PenjualanRumahApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+23:58:27.978 [main] INFO  c.p.PenjualanRumahApplication - No active profile set, falling back to 1 default profile: "default"
+23:58:28.888 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+23:58:28.959 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 4 JPA repository interfaces.
+23:58:29.572 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+23:58:29.593 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-8080"]
+23:58:29.597 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+23:58:29.597 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+23:58:29.669 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:58:29.669 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1624 ms
+23:58:29.735 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.postgresql.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@33909752
+23:58:29.825 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+23:58:29.893 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+23:58:29.937 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+23:58:30.184 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+23:58:30.217 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+23:58:30.217 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+23:58:30.217 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+23:58:30.217 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+23:58:30.217 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+23:58:30.217 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+23:58:30.225 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+23:58:30.225 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+23:58:30.225 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+23:58:30.227 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+23:58:30.227 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+23:58:30.227 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.postgresql.Driver"
+23:58:30.229 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+23:58:30.229 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+23:58:30.229 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+23:58:30.229 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+23:58:30.229 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+23:58:30.229 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:postgresql://ep-winter-meadow-a1wq48oq-pooler.ap-southeast-1.aws.neon.tech:5432/Penjualan%20Rumah?sslmode=require&connectTimeout=30
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................10
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................10
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+23:58:30.231 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+23:58:30.235 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+23:58:30.236 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+23:58:30.236 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+23:58:30.236 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+23:58:30.236 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"neondb_owner"
+23:58:30.236 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+23:58:30.236 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+23:58:31.319 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4dd1d2bb
+23:58:31.319 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+23:58:31.422 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+23:58:31.431 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+23:58:31.827 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@19cfdd8d
+23:58:32.171 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@170830c4
+23:58:32.539 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1337b6fd
+23:58:32.829 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+23:58:33.017 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@56353aff
+23:58:33.366 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4907ecad
+23:58:33.587 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+23:58:33.794 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@361ac5b0
+23:58:34.299 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+23:58:34.495 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 15 mappings in 'requestMappingHandlerMapping'
+23:58:34.554 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@ae7bcdc
+23:58:34.571 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+23:58:34.635 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3f2feab7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@8b71052, org.springframework.security.web.context.SecurityContextHolderFilter@75693526, org.springframework.security.web.header.HeaderWriterFilter@12ebcdf6, org.springframework.web.filter.CorsFilter@2738a1fc, org.springframework.security.web.csrf.CsrfFilter@d695f9d, org.springframework.security.web.authentication.logout.LogoutFilter@538d2308, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1a5c0b8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@603a34e5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@160d68b8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d7d0946, org.springframework.security.web.access.ExceptionTranslationFilter@45dfb6a4, org.springframework.security.web.access.intercept.AuthorizationFilter@5d3d5242]
+23:58:34.717 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+23:58:34.759 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+23:58:34.873 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2417851d
+23:58:34.959 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8080"]
+23:58:34.977 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+23:58:34.987 [main] INFO  c.p.PenjualanRumahApplication - Started PenjualanRumahApplication in 7.683 seconds (process running for 8.137)
+23:58:35.199 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@520367b6
+23:58:35.224 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+23:58:41.583 [http-nio-0.0.0.0-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+23:58:41.583 [http-nio-0.0.0.0-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+23:58:41.583 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+23:58:41.583 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+23:58:41.583 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+23:58:41.583 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7a0f1f9d
+23:58:41.583 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@53fb3e1b
+23:58:41.583 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+23:58:41.583 [http-nio-0.0.0.0-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+23:58:41.613 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /
+23:58:41.624 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:58:41.651 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/?continue to session
+23:58:41.655 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8080/login
+23:58:41.672 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+23:58:41.672 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+23:58:41.672 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+23:58:41.678 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:58:41.704 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:58:41.985 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:58:41.985 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+23:58:56.885 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /login
+23:58:57.311 [http-nio-0.0.0.0-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+23:58:57.541 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+23:58:57.541 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 51C4A154F1856C26CA243BC8B0F10A06
+23:58:57.541 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+23:58:57.541 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=51C4A154F1856C26CA243BC8B0F10A06], Granted Authorities=[ROLE_BUYER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@7d16319a]
+23:58:57.541 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=51C4A154F1856C26CA243BC8B0F10A06], Granted Authorities=[ROLE_BUYER]]
+23:58:57.541 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /dashboard
+23:58:57.550 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /dashboard
+23:58:57.550 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=51C4A154F1856C26CA243BC8B0F10A06], Granted Authorities=[ROLE_BUYER]]]
+23:58:57.550 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /dashboard
+23:58:57.550 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard", parameters={}
+23:58:57.550 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.DashboardController#dashboard(Authentication)
+23:58:57.557 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.view.RedirectView - View name 'redirect:', model {}
+23:58:57.559 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 302 FOUND
+23:58:57.564 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /buyer/dashboard
+23:58:57.564 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=51C4A154F1856C26CA243BC8B0F10A06], Granted Authorities=[ROLE_BUYER]]]
+23:58:57.564 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /buyer/dashboard
+23:58:57.567 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/buyer/dashboard", parameters={}
+23:58:57.567 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.DashboardController#buyerDashboard()
+23:58:57.567 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:58:57.576 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:59:01.103 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+23:59:01.106 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+23:59:01.106 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+23:59:01.108 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+23:59:01.108 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:59:01.136 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:59:01.142 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=51C4A154F1856C26CA243BC8B0F10A06], Granted Authorities=[ROLE_BUYER]]]
+23:59:01.439 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+23:59:01.439 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+23:59:03.443 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /register
+23:59:03.443 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /register
+23:59:03.443 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/register", parameters={}
+23:59:03.449 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#registerPage(Model)
+23:59:03.449 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+23:59:03.508 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+23:59:03.508 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=Yo, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=51C4A154F1856C26CA243BC8B0F10A06], Granted Authorities=[ROLE_BUYER]]]
+23:59:31.447 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+23:59:31.447 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
