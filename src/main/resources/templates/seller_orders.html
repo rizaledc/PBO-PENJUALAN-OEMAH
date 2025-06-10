@@ -82,12 +82,7 @@
                     <div class="card-body">
                         <form method="get" action="/seller/orders" class="row">
                             <div class="col-md-3">
-                                <select class="form-select" name="status" id="statusFilter">
-                                    <option value="">Semua Status</option>
-                                    <option value="PENDING" th:selected="${selectedStatus == 'PENDING'}">Pending</option>
-                                    <option value="APPROVED" th:selected="${selectedStatus == 'APPROVED'}">Approved</option>
-                                    <option value="REJECTED" th:selected="${selectedStatus == 'REJECTED'}">Rejected</option>
-                                </select>
+                                <input type="text" class="form-control" name="customer" placeholder="Cari nama pelanggan..." th:value="${selectedCustomer}">
                             </div>
                             <div class="col-md-3">
                                 <select class="form-select" name="region" id="regionFilter">
@@ -124,17 +119,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="order : ${orders}">
+                                    <tr th:each="order : ${orders}" th:unless="${orders.size()} == 0">
                                         <td th:text="${order.id}"></td>
                                         <td th:text="${order.customer.username}"></td>
                                         <td th:text="${order.houseType}"></td>
                                         <td th:text="${order.region}"></td>
                                         <td th:text="${order.paymentType}"></td>
-                                        <td>
-                                            <span class="status-badge" th:classappend="${order.status == 'APPROVED' ? 'status-approved' : (order.status == 'REJECTED' ? 'status-rejected' : 'status-pending')}" 
-                                                  th:text="${order.status}"></span>
-                                        </td>
+                                        <td th:text="${order.status}"></td>
                                         <td th:text="${#temporals.format(order.orderDate, 'dd-MM-yyyy')}"></td>
+                                    </tr>
+                                    <tr th:if="${orders.size()} == 0">
+                                        <td colspan="7" class="text-center">Tidak ada pesanan yang anda cari</td>
                                     </tr>
                                 </tbody>
                             </table>

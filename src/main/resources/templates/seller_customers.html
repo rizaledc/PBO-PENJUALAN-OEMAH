@@ -93,13 +93,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="customer : ${customers}">
+                                    <tr th:each="customer : ${customers}" th:unless="${customers.size()} == 0">
                                         <td th:text="${customer.id}"></td>
                                         <td th:text="${customer.name}"></td>
                                         <td th:text="${customer.email}"></td>
                                         <td th:text="${customer.phone}"></td>
                                         <td th:text="${#temporals.format(customer.joinDate, 'dd-MM-yyyy')}"></td>
                                         <td th:text="${customer.totalOrders}"></td>
+                                    </tr>
+                                    <tr th:if="${customers.size()} == 0">
+                                        <td colspan="6" class="text-center">Pesanan yang anda cari tidak ditemukan</td>
                                     </tr>
                                 </tbody>
                             </table>

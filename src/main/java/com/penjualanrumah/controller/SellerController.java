@@ -49,7 +49,7 @@ public class SellerController {
 
     @GetMapping("/orders")
     public String orders(
-            @RequestParam(required = false) String status,
+            @RequestParam(required = false) String customer,
             @RequestParam(required = false) String region,
             @RequestParam(required = false) String date,
             Model model
@@ -57,20 +57,18 @@ public class SellerController {
         try {
             List<Order> orders = orderRepository.findAll();
             
-            // Filter berdasarkan status
-            if (status != null && !status.isEmpty()) {
+            // Filter berdasarkan nama pelanggan
+            if (customer != null && !customer.isEmpty()) {
                 orders = orders.stream()
-                    .filter(order -> order.getStatus().equals(status))
+                    .filter(order -> order.getCustomer() != null && order.getCustomer().getUsername().toLowerCase().contains(customer.toLowerCase()))
                     .toList();
             }
-            
             // Filter berdasarkan region
             if (region != null && !region.isEmpty()) {
                 orders = orders.stream()
                     .filter(order -> order.getRegion().toString().equals(region))
                     .toList();
             }
-            
             // Filter berdasarkan tanggal
             if (date != null && !date.isEmpty()) {
                 LocalDate filterDate = LocalDate.parse(date);
@@ -78,9 +76,8 @@ public class SellerController {
                     .filter(order -> order.getOrderDate().toLocalDate().equals(filterDate))
                     .toList();
             }
-
             model.addAttribute("orders", orders);
-            model.addAttribute("selectedStatus", status);
+            model.addAttribute("selectedCustomer", customer);
             model.addAttribute("selectedRegion", region);
             model.addAttribute("selectedDate", date);
             return "seller_orders";
