@@ -92,14 +92,8 @@
           <!-- Profile Header -->
           <div class="profile-header">
             <div class="row align-items-center">
-              <div class="col-md-3 text-center">
-                <img
-                  src="https://via.placeholder.com/150"
-                  alt="Profile Picture"
-                  class="profile-picture"
-                />
-              </div>
-              <div class="col-md-9">
+              <!-- Hapus gambar lingkaran/profile-picture -->
+              <div class="col-md-9 offset-md-0">
                 <h2 th:text="${user.fullName}">[Nama Pengguna]</h2>
                 <p class="mb-0">
                   <i class="bi bi-envelope"></i>
@@ -168,30 +162,66 @@
                   <form th:action="@{/profile/change-password}" method="post">
                     <div class="mb-3">
                       <label class="form-label">Password Lama</label>
-                      <input
-                        type="password"
-                        class="form-control"
-                        name="oldPassword"
-                        required
-                      />
+                      <div class="input-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          name="oldPassword"
+                          id="oldPassword"
+                          required
+                        />
+                        <div class="input-group-append">
+                          <button
+                            class="btn btn-outline-secondary"
+                            type="button"
+                            onclick="togglePassword('oldPassword', this)"
+                          >
+                            👁️
+                          </button>
+                        </div>
+                      </div>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Password Baru</label>
-                      <input
-                        type="password"
-                        class="form-control"
-                        name="newPassword"
-                        required
-                      />
+                      <div class="input-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          name="newPassword"
+                          id="newPassword"
+                          required
+                        />
+                        <div class="input-group-append">
+                          <button
+                            class="btn btn-outline-secondary"
+                            type="button"
+                            onclick="togglePassword('newPassword', this)"
+                          >
+                            👁️
+                          </button>
+                        </div>
+                      </div>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Konfirmasi Password Baru</label>
-                      <input
-                        type="password"
-                        class="form-control"
-                        name="confirmPassword"
-                        required
-                      />
+                      <div class="input-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          name="confirmPassword"
+                          id="confirmPassword"
+                          required
+                        />
+                        <div class="input-group-append">
+                          <button
+                            class="btn btn-outline-secondary"
+                            type="button"
+                            onclick="togglePassword('confirmPassword', this)"
+                          >
+                            👁️
+                          </button>
+                        </div>
+                      </div>
                     </div>
                     <button type="submit" class="btn btn-primary">
                       Ubah Password
@@ -200,6 +230,7 @@
                 </div>
               </div>
 
+              <!-- Riwayat Pesanan dengan paginasi -->
               <div class="card mt-4">
                 <div class="card-body">
                   <h4 class="card-title mb-4">Riwayat Pesanan</h4>
@@ -214,21 +245,51 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr th:each="order, iterStat : ${orders}">
-                          <td th:text="${iterStat.count}"></td>
+                        <tr th:each="order, iterStat : ${ordersPage}">
+                          <td
+                            th:text="${iterStat.index + 1 + (currentPage * 3)}"
+                          ></td>
                           <td th:text="${order.houseType}"></td>
                           <td><span class="badge bg-warning">Pending</span></td>
                           <td
                             th:text="${#temporals.format(order.orderDate, 'dd-MM-yyyy')}"
                           ></td>
                         </tr>
-                        <tr th:if="${orders.size()} == 0">
+                        <tr th:if="${ordersPage.size()} == 0">
                           <td colspan="4" class="text-center">
                             Belum ada pesanan.
                           </td>
                         </tr>
                       </tbody>
                     </table>
+                    <div class="d-flex justify-content-between">
+                      <form th:action="@{/profile}" method="get">
+                        <input
+                          type="hidden"
+                          name="page"
+                          th:value="${currentPage - 1}"
+                        />
+                        <button
+                          class="btn btn-secondary"
+                          th:disabled="${currentPage == 0}"
+                        >
+                          Previous
+                        </button>
+                      </form>
+                      <form th:action="@{/profile}" method="get">
+                        <input
+                          type="hidden"
+                          name="page"
+                          th:value="${currentPage + 1}"
+                        />
+                        <button
+                          class="btn btn-secondary"
+                          th:disabled="${!hasNext}"
+                        >
+                          Next
+                        </button>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -249,5 +310,17 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function togglePassword(id, btn) {
+        const input = document.getElementById(id);
+        if (input.type === "password") {
+          input.type = "text";
+          btn.innerText = "🙈";
+        } else {
+          input.type = "password";
+          btn.innerText = "👁️";
+        }
+      }
+    </script>
   </body>
 </html>
