@@ -57,21 +57,21 @@ public class OrderController {
             
             User user = userService.findByUsername(userDetails.getUsername());
             if (user == null) {
-                redirectAttributes.addFlashAttribute("error", "User tidak ditemukan");
+                redirectAttributes.addFlashAttribute("error", "User tidak ditemukan. Silakan login ulang.");
                 return "redirect:/order";
             }
-            
             order.setCustomer(user);
             order.setStatus("PENDING");
             orderRepository.save(order);
-            
             redirectAttributes.addFlashAttribute("message", "Pesanan berhasil dibuat");
             return "redirect:/order/history";
         } catch (IllegalArgumentException e) {
-            redirectAttributes.addFlashAttribute("error", "Data yang dimasukkan tidak valid");
+            e.printStackTrace();
+            redirectAttributes.addFlashAttribute("error", "Data yang dimasukkan tidak valid: " + e.getMessage());
             return "redirect:/order";
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Terjadi kesalahan saat memproses pesanan");
+            e.printStackTrace();
+            redirectAttributes.addFlashAttribute("error", "Terjadi kesalahan saat memproses pesanan: " + e.getMessage());
             return "redirect:/order";
         }
     }

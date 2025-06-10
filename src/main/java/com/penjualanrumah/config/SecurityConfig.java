@@ -24,11 +24,13 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf
                 .ignoringRequestMatchers("/register")
+                // pastikan endpoint /order tetap menggunakan CSRF
             )
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/register", "/login", "/css/**", "/js/**", "/images/**").permitAll()
                 .requestMatchers("/seller/**").hasRole("SELLER")
-                .requestMatchers("/buyer/**", "/user/**", "/order/**").hasRole("BUYER")
+                .requestMatchers("/buyer/**", "/order/**").authenticated()
+                .requestMatchers("/user/**").authenticated()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form

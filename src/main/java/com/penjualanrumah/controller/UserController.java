@@ -29,8 +29,14 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/user/order")
-    public String showUserPage(Model model) {
+    public String showUserPage(
+        @RequestParam(value = "houseType", required = false) String houseType,
+        @RequestParam(value = "region", required = false) String region,
+        Model model
+    ) {
         try {
+            model.addAttribute("selectedHouseType", houseType);
+            model.addAttribute("selectedRegion", region);
             return "order_form";
         } catch (Exception e) {
             model.addAttribute("error", "Terjadi kesalahan saat memuat halaman pesanan");
