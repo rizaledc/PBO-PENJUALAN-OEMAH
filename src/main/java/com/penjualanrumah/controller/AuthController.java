@@ -40,11 +40,19 @@ public class AuthController {
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user,
                              @RequestParam("confirmPassword") String confirmPassword,
+                             @RequestParam(value = "sellerCode", required = false) String sellerCode,
                              RedirectAttributes redirectAttributes) {
         try {
             if (!user.getPassword().equals(confirmPassword)) {
                 redirectAttributes.addFlashAttribute("error", "Password tidak cocok");
                 return "redirect:/register";
+            }
+
+            if (user.getRole() == User.UserRole.SELLER) {
+                if (sellerCode == null || !sellerCode.equals("MATA DUITAN")) {
+                    redirectAttributes.addFlashAttribute("error", "Kode Seller tidak valid");
+                    return "redirect:/register";
+                }
             }
 
             userService.registerUser(user);

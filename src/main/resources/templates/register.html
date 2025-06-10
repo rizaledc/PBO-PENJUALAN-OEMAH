@@ -81,6 +81,11 @@
                         <option value="SELLER">Penjual</option>
                     </select>
                 </div>
+                <div id="sellerCodeGroup" style="display: none;">
+                    <label for="sellerCode" class="block text-sm font-semibold text-gray-700">Kode Seller</label>
+                    <input type="text" id="sellerCode" name="sellerCode" placeholder="Masukkan kode seller" 
+                           class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
                 <div>
                     <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
                     <input type="password" id="password" th:field="*{password}" required
@@ -104,5 +109,26 @@
             </p>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const roleSelect = document.getElementById('role');
+            const sellerCodeGroup = document.getElementById('sellerCodeGroup');
+            const sellerCodeInput = document.getElementById('sellerCode');
+
+            function toggleSellerCodeInput() {
+                if (roleSelect.value === 'SELLER') {
+                    sellerCodeGroup.style.display = 'block';
+                    sellerCodeInput.required = true;
+                } else {
+                    sellerCodeGroup.style.display = 'none';
+                    sellerCodeInput.required = false;
+                    sellerCodeInput.value = ''; // Clear value if hidden
+                }
+            }
+
+            roleSelect.addEventListener('change', toggleSellerCodeInput);
+            toggleSellerCodeInput(); // Initial check on page load
+        });
+    </script>
 </body>
 </html>
