@@ -30,10 +30,9 @@ public class UserController {
 
     @GetMapping("/user/order")
     public String showUserPage(
-        @RequestParam(value = "houseType", required = false) String houseType,
-        @RequestParam(value = "region", required = false) String region,
-        Model model
-    ) {
+            @RequestParam(value = "houseType", required = false) String houseType,
+            @RequestParam(value = "region", required = false) String region,
+            Model model) {
         try {
             model.addAttribute("selectedHouseType", houseType);
             model.addAttribute("selectedRegion", region);
@@ -45,21 +44,32 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String userProfile(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+    public String userProfile(@AuthenticationPrincipal UserDetails userDetails, Model model,
+            @RequestParam(value = "page", defaultValue = "0") int page) {
         try {
             var user = userService.findByUsername(userDetails.getUsername());
             if (user == null) {
                 model.addAttribute("error", "User tidak ditemukan");
                 return "error";
             }
-            
             model.addAttribute("user", user);
-
             List<Order> orders = orderRepository.findAll().stream()
-                .filter(o -> o.getCustomer() != null && o.getCustomer().getUsername().equals(userDetails.getUsername()))
-                .toList();
-            model.addAttribute("orders", orders);
-
+                    .filter(o -> o.getCustomer() != null
+                            && o.getCustomer().getUsername().equals(userDetails.getUsername()))
+                    .toList();
+            int pageSize = 3;
+            int totalPages = (int) Math.ceil((double) orders.size() / pageSize);
+            if (page < 0)
+                page = 0;
+            if (page >= totalPages && totalPages > 0)
+                page = totalPages - 1;
+            int fromIndex = page * pageSize;
+            int toIndex = Math.min(fromIndex + pageSize, orders.size());
+            List<Order> ordersPage = fromIndex < orders.size() ? orders.subList(fromIndex, toIndex) : List.of();
+            boolean hasNext = toIndex < orders.size();
+            model.addAttribute("ordersPage", ordersPage);
+            model.addAttribute("currentPage", page);
+            model.addAttribute("hasNext", hasNext);
             return "profile";
         } catch (Exception e) {
             model.addAttribute("error", "Terjadi kesalahan saat memuat profil");
@@ -73,8 +83,7 @@ public class UserController {
             @RequestParam("oldPassword") String oldPassword,
             @RequestParam("newPassword") String newPassword,
             @RequestParam("confirmPassword") String confirmPassword,
-            RedirectAttributes redirectAttributes
-    ) {
+            RedirectAttributes redirectAttributes) {
         try {
             var user = userService.findByUsername(userDetails.getUsername());
             if (user == null) {
