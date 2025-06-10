@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import com.penjualanrumah.model.Order;
 import com.penjualanrumah.model.Customer;
 import java.util.List;
-import java.time.LocalDateTime;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @Controller
 @RequestMapping("/seller")

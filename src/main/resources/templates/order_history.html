@@ -20,6 +20,7 @@
             <th>Uang Muka</th>
             <th>Periode Kredit (bulan)</th>
             <th>Tanggal Pesan</th>
+            <th>Aksi</th>
         </tr>
         </thead>
         <tbody>
@@ -31,9 +32,12 @@
             <td th:text="${order.downPayment}"></td>
             <td th:text="${order.installmentPeriod}"></td>
             <td th:text="${#dates.format(order.orderDate, 'dd-MM-yyyy HH:mm')}"></td>
+            <td>
+                <a th:href="@{/order/detail(id=${order.id})}" class="btn btn-info btn-sm">Detail</a>
+            </td>
         </tr>
         <tr th:if="${orders.size()} == 0">
-            <td colspan="7" class="text-center">Belum ada pesanan.</td>
+            <td colspan="8" class="text-center">Belum ada pesanan.</td>
         </tr>
         </tbody>
     </table>
