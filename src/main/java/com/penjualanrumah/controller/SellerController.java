@@ -37,7 +37,8 @@ public class SellerController {
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
         try {
-            // Tambahkan data yang diperlukan untuk dashboard
+            List<Order> orders = orderRepository.findAll();
+            model.addAttribute("orders", orders);
             model.addAttribute("totalOrders", orderRepository.count());
             model.addAttribute("totalCustomers", customerRepository.count());
             return "seller_dashboard";
