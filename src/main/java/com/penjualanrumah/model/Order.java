@@ -20,13 +20,16 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private Region region;
-    
+
     @Enumerated(EnumType.STRING)
     private PaymentType paymentType;
+
     private BigDecimal downPayment;
     private Integer installmentPeriod;
     private LocalDateTime orderDate = LocalDateTime.now();
-    
+    private String status;
+    private BigDecimal total;
+
     public enum HouseType {
         TYPE_36, TYPE_47, TYPE_57
     }
@@ -102,5 +105,21 @@ public class Order {
 
     public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
     }
 }
