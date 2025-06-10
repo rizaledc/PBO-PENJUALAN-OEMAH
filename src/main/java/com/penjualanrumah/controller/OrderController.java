@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.penjualanrumah.model.Order;
 import com.penjualanrumah.model.User;
 import com.penjualanrumah.repository.OrderRepository;
+import com.penjualanrumah.repository.UserRepository;
 import com.penjualanrumah.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 import org.springframework.ui.Model;
 import java.util.List;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.penjualanrumah.model.Order.Status;
 
 @Controller
 public class OrderController {
@@ -23,6 +25,9 @@ public class OrderController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/order")
     public String showOrderPage(Model model) {
@@ -61,7 +66,16 @@ public class OrderController {
                 return "redirect:/order";
             }
             order.setCustomer(user);
-            order.setStatus("PENDING");
+            
+            // Cari seller pertama (atau logika lain sesuai kebutuhan)
+            List<User> sellers = userRepository.findByRole(User.UserRole.SELLER);
+            if (sellers.isEmpty()) {
+                redirectAttributes.addFlashAttribute("error", "Tidak ada penjual yang tersedia.");
+                return "redirect:/order";
+            }
+            order.setSeller(sellers.get(0)); // Atau logika penentuan seller lain
+            
+            order.setStatus(Status.PENDING);
             orderRepository.save(order);
             redirectAttributes.addFlashAttribute("message", "Pesanan berhasil dibuat");
             return "redirect:/order/history";

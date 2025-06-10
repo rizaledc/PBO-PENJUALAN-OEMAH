@@ -15,6 +15,10 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private User customer;
 
+    @ManyToOne
+    @JoinColumn(name = "seller_id")
+    private User seller;
+
     @Enumerated(EnumType.STRING)
     private HouseType houseType;
 
@@ -27,7 +31,6 @@ public class Order {
     private BigDecimal downPayment;
     private Integer installmentPeriod;
     private LocalDateTime orderDate = LocalDateTime.now();
-    private String status;
     private BigDecimal total;
 
     public enum HouseType {
@@ -41,6 +44,14 @@ public class Order {
     public enum PaymentType {
         CASH, INSTALLMENTS
     }
+
+    public enum Status {
+        PENDING, APPROVED, REJECTED
+    }
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Status status;
 
     // Getters and Setters
     public Long getId() {
@@ -57,6 +68,14 @@ public class Order {
 
     public void setCustomer(User customer) {
         this.customer = customer;
+    }
+
+    public User getSeller() {
+        return seller;
+    }
+
+    public void setSeller(User seller) {
+        this.seller = seller;
     }
 
     public HouseType getHouseType() {
@@ -107,11 +126,11 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

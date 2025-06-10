@@ -14,8 +14,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import com.penjualanrumah.model.Order;
 import com.penjualanrumah.model.Customer;
+import com.penjualanrumah.model.User;
+import com.penjualanrumah.service.OrderService;
+import com.penjualanrumah.repository.UserRepository;
 import java.util.List;
 import java.time.LocalDate;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import com.penjualanrumah.model.Order.Status;
 
 @Controller
 @RequestMapping("/seller")
@@ -28,6 +34,11 @@ public class SellerController {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private OrderService orderService;
+    @Autowired
+    private UserRepository userRepository;
+
     @ModelAttribute
     public void addAttributes(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -36,15 +47,23 @@ public class SellerController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
-        try {
-            // Tambahkan data yang diperlukan untuk dashboard
-            model.addAttribute("totalOrders", orderRepository.count());
-            model.addAttribute("totalCustomers", customerRepository.count());
-            return "seller_dashboard";
-        } catch (Exception e) {
-            model.addAttribute("error", "Terjadi kesalahan saat memuat dashboard");
-            return "error";
-        }
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        User seller = userRepository.findByUsername(username);
+        // Ambil hanya pesanan dengan status PENDING milik seller yang sedang login
+        List<Order> pendingOrders = orderRepository.findBySellerAndStatus(seller, Order.Status.PENDING);
+        model.addAttribute("pendingOrders", pendingOrders);
+        model.addAttribute("totalOrders", orderRepository.count());
+        model.addAttribute("totalCustomers", customerRepository.count());
+        return "seller_dashboard";
+    }
+
+    // DEBUG: tampilkan semua pesanan pending tanpa filter seller
+    @GetMapping("/dashboard-debug")
+    public String dashboardDebug(Model model) {
+        List<Order> pendingOrders = orderRepository.findByStatus(Order.Status.PENDING);
+        model.addAttribute("pendingOrders", pendingOrders);
+        return "seller_dashboard";
     }
 
     @GetMapping("/orders")
@@ -118,5 +137,17 @@ public class SellerController {
             model.addAttribute("error", "Terjadi kesalahan saat memuat data pelanggan");
             return "error";
         }
+    }
+
+    @PostMapping("/order/approve/{orderId}")
+    public String approveOrder(@PathVariable Long orderId, Model model) {
+        orderService.updateOrderStatus(orderId, Status.APPROVED);
+        return "redirect:/seller/dashboard";
+    }
+
+    @PostMapping("/order/reject/{orderId}")
+    public String rejectOrder(@PathVariable Long orderId, Model model) {
+        orderService.updateOrderStatus(orderId, Status.REJECTED);
+        return "redirect:/seller/dashboard";
     }
 }
