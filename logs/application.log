@@ -6201,3 +6201,267 @@ Caused by: org.postgresql.util.PSQLException: ERROR: column "down_payment" canno
 01:06:56.118 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@6b09bcd0: (connection evicted)
 01:06:56.147 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
 01:06:56.148 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+01:22:17.625 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+01:22:17.662 [main] INFO  c.p.PenjualanRumahApplication - Starting PenjualanRumahApplication using Java 23.0.2 with PID 19948 (C:\PB0\PBO-PENJUALAN-OEMAH\target\classes started by ASUS in C:\PB0\PBO-PENJUALAN-OEMAH)
+01:22:17.662 [main] DEBUG c.p.PenjualanRumahApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+01:22:17.662 [main] INFO  c.p.PenjualanRumahApplication - No active profile set, falling back to 1 default profile: "default"
+01:22:18.156 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01:22:18.205 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 5 JPA repository interfaces.
+01:22:18.599 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+01:22:18.610 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-8080"]
+01:22:18.613 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+01:22:18.613 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+01:22:18.663 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+01:22:18.663 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 964 ms
+01:22:18.710 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.postgresql.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@33909752
+01:22:18.771 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+01:22:18.804 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+01:22:18.843 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+01:22:19.021 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+01:22:19.042 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+01:22:19.050 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+01:22:19.050 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+01:22:19.050 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+01:22:19.050 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+01:22:19.050 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+01:22:19.050 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+01:22:19.050 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+01:22:19.050 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.postgresql.Driver"
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:postgresql://ep-winter-meadow-a1wq48oq-pooler.ap-southeast-1.aws.neon.tech:5432/Penjualan%20Rumah?sslmode=require&connectTimeout=30
+01:22:19.053 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+01:22:19.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+01:22:19.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+01:22:19.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................10
+01:22:19.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+01:22:19.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+01:22:19.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................10
+01:22:19.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+01:22:19.055 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+01:22:19.056 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+01:22:19.056 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+01:22:19.056 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+01:22:19.056 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+01:22:19.056 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+01:22:19.056 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+01:22:19.056 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"neondb_owner"
+01:22:19.056 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+01:22:19.057 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+01:22:19.927 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@504b8705
+01:22:19.929 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+01:22:20.008 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+01:22:20.037 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+01:22:20.340 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@35b5b61
+01:22:20.745 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@d9cb57a
+01:22:20.764 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+01:22:21.028 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists orders 
+       alter column down_payment set data type numeric(38,2)
+01:22:21.065 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists orders 
+       alter column down_payment set data type numeric(38,2)" via JDBC [ERROR: column "down_payment" cannot be cast automatically to type numeric
+  Hint: You might need to specify "USING down_payment::numeric(38,2)".]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists orders 
+       alter column down_payment set data type numeric(38,2)" via JDBC [ERROR: column "down_payment" cannot be cast automatically to type numeric
+  Hint: You might need to specify "USING down_payment::numeric(38,2)".]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:333)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:388)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:364)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.penjualanrumah.PenjualanRumahApplication.main(PenjualanRumahApplication.java:9)
+Caused by: org.postgresql.util.PSQLException: ERROR: column "down_payment" cannot be cast automatically to type numeric
+  Hint: You might need to specify "USING down_payment::numeric(38,2)".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 38 common frames omitted
+01:22:21.137 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9a33011
+01:22:21.445 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4ca1bf41
+01:22:21.599 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01:22:21.755 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6d94b14a
+01:22:21.903 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01:22:22.023 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 18 mappings in 'requestMappingHandlerMapping'
+01:22:22.035 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2c8e400e
+01:22:22.072 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+01:22:22.104 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7b1b1784, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@288e50c1, org.springframework.security.web.context.SecurityContextHolderFilter@5afaae7e, org.springframework.security.web.header.HeaderWriterFilter@52df6d0f, org.springframework.web.filter.CorsFilter@58e0d1ac, org.springframework.security.web.csrf.CsrfFilter@6915351c, org.springframework.security.web.authentication.logout.LogoutFilter@63df2eb8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@39c93af6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50331591, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5cfde2a4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7fba30fe, org.springframework.security.web.access.ExceptionTranslationFilter@1e9d6c78, org.springframework.security.web.access.intercept.AuthorizationFilter@69374e28]
+01:22:22.159 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+01:22:22.177 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+01:22:22.286 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8080"]
+01:22:22.298 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+01:22:22.305 [main] INFO  c.p.PenjualanRumahApplication - Started PenjualanRumahApplication in 5.027 seconds (process running for 5.323)
+01:22:22.306 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7a0f5f25
+01:22:22.590 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3ec6d0be
+01:22:23.072 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@769038cd
+01:22:23.103 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+01:22:32.081 [http-nio-0.0.0.0-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+01:22:32.081 [http-nio-0.0.0.0-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+01:22:32.081 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+01:22:32.081 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+01:22:32.081 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+01:22:32.084 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@65192f16
+01:22:32.084 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@20a7ce0
+01:22:32.084 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+01:22:32.084 [http-nio-0.0.0.0-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+01:22:32.103 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /buyer/dashboard
+01:22:32.114 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+01:22:32.131 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/buyer/dashboard?continue to session
+01:22:32.132 [http-nio-0.0.0.0-8080-exec-1] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8080/login
+01:22:32.137 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+01:22:32.138 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+01:22:32.139 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/login", parameters={}
+01:22:32.140 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.AuthController#loginPage(String, String, Model)
+01:22:32.164 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+01:22:32.370 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+01:22:32.372 [http-nio-0.0.0.0-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+01:22:38.192 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /login
+01:22:38.369 [http-nio-0.0.0.0-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+01:22:38.592 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+01:22:38.593 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 21DA2AFA76D76259BA286FEB905F890C
+01:22:38.593 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+01:22:38.594 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=pembeli1, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=21DA2AFA76D76259BA286FEB905F890C], Granted Authorities=[ROLE_BUYER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@eb92de7]
+01:22:38.594 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=pembeli1, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=21DA2AFA76D76259BA286FEB905F890C], Granted Authorities=[ROLE_BUYER]]
+01:22:38.594 [http-nio-0.0.0.0-8080-exec-3] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /dashboard
+01:22:38.597 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /dashboard
+01:22:38.598 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=pembeli1, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=21DA2AFA76D76259BA286FEB905F890C], Granted Authorities=[ROLE_BUYER]]]
+01:22:38.598 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /dashboard
+01:22:38.598 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard", parameters={}
+01:22:38.598 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.DashboardController#dashboard(Authentication)
+01:22:38.603 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.view.RedirectView - View name 'redirect:', model {}
+01:22:38.603 [http-nio-0.0.0.0-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 302 FOUND
+01:22:38.607 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /buyer/dashboard
+01:22:38.608 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=pembeli1, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=21DA2AFA76D76259BA286FEB905F890C], Granted Authorities=[ROLE_BUYER]]]
+01:22:38.608 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /buyer/dashboard
+01:22:38.608 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/buyer/dashboard", parameters={}
+01:22:38.608 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.penjualanrumah.controller.DashboardController#buyerDashboard(Authentication, Model)
+01:22:38.610 [http-nio-0.0.0.0-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+01:22:38.671 [http-nio-0.0.0.0-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.customer_id,
+        o1_0.down_payment,
+        o1_0.house_type,
+        o1_0.installment_period,
+        o1_0.order_date,
+        o1_0.payment_type,
+        o1_0.region,
+        o1_0.status,
+        o1_0.total 
+    from
+        orders o1_0 
+    where
+        o1_0.customer_id=?
+01:22:38.707 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+01:22:38.714 [http-nio-0.0.0.0-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /images/tipe36.jpg
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /images/tipe57.jpg
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /images/tipe47jpg.jpg
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /images/tipe57.jpg
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /images/tipe36.jpg
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/images/tipe57.jpg", parameters={}
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /images/tipe47jpg.jpg
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/images/tipe36.jpg", parameters={}
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/images/tipe47jpg.jpg", parameters={}
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+01:22:38.734 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+01:22:38.744 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+01:22:38.744 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+01:22:38.744 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+01:22:38.744 [http-nio-0.0.0.0-8080-exec-6] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=pembeli1, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=21DA2AFA76D76259BA286FEB905F890C], Granted Authorities=[ROLE_BUYER]]]
+01:22:38.744 [http-nio-0.0.0.0-8080-exec-8] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=pembeli1, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=21DA2AFA76D76259BA286FEB905F890C], Granted Authorities=[ROLE_BUYER]]]
+01:22:38.744 [http-nio-0.0.0.0-8080-exec-7] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=pembeli1, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_BUYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=21DA2AFA76D76259BA286FEB905F890C], Granted Authorities=[ROLE_BUYER]]]
+01:22:50.050 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+01:22:50.050 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+01:23:03.922 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+01:23:03.927 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+01:23:03.929 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+01:23:03.929 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@504b8705: (connection evicted)
+01:23:03.956 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@35b5b61: (connection evicted)
+01:23:03.989 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@d9cb57a: (connection evicted)
+01:23:04.014 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@9a33011: (connection evicted)
+01:23:04.041 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@4ca1bf41: (connection evicted)
+01:23:04.072 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@6d94b14a: (connection evicted)
+01:23:04.090 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@2c8e400e: (connection evicted)
+01:23:04.130 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@7a0f5f25: (connection evicted)
+01:23:04.154 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@3ec6d0be: (connection evicted)
+01:23:04.183 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@769038cd: (connection evicted)
+01:23:04.228 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+01:23:04.228 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
