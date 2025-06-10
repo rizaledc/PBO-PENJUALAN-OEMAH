@@ -82,7 +82,7 @@
 
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
-                <h2 class="mb-4">Selamat Datang, [Nama Pembeli]</h2>
+                <h2 class="mb-4">Selamat Datang, <span th:text="${fullName}">[Nama Pembeli]</span></h2>
                 
                 <!-- Status Pesanan -->
                 <div class="row mb-4">
@@ -90,7 +90,7 @@
                         <div class="card bg-primary text-white">
                             <div class="card-body">
                                 <h5 class="card-title">Total Pesanan</h5>
-                                <h2 class="card-text">3</h2>
+                                <h2 class="card-text" th:text="${totalOrders}">3</h2>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                         <div class="card bg-success text-white">
                             <div class="card-body">
                                 <h5 class="card-title">Pesanan Disetujui</h5>
-                                <h2 class="card-text">2</h2>
+                                <h2 class="card-text" th:text="${approvedOrders}">2</h2>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                         <div class="card bg-warning text-white">
                             <div class="card-body">
                                 <h5 class="card-title">Pesanan Pending</h5>
-                                <h2 class="card-text">1</h2>
+                                <h2 class="card-text" th:text="${pendingOrders}">1</h2>
                             </div>
                         </div>
                     </div>
