@@ -15,6 +15,9 @@ import java.math.BigDecimal;
 import org.springframework.ui.Model;
 import java.util.List;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class OrderController {
@@ -23,6 +26,8 @@ public class OrderController {
 
     @Autowired
     private UserService userService;
+
+    private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
     @GetMapping("/order")
     public String showOrderPage(Model model) {
@@ -106,16 +111,74 @@ public class OrderController {
             Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Pesanan tidak ditemukan"));
 
+            if (order.getCustomer() == null) {
+                logger.error("Customer pada order id {} null", orderId);
+                model.addAttribute("error", "Data customer pada pesanan ini kosong.");
+                return "error";
+            }
             if (!order.getCustomer().getUsername().equals(userDetails.getUsername())) {
+                logger.error("User {} mencoba akses order {} milik {}", userDetails.getUsername(), orderId, order.getCustomer().getUsername());
                 model.addAttribute("error", "Anda tidak memiliki akses ke pesanan ini");
                 return "error";
             }
 
+            logger.info("Order detail loaded: {}", order);
             model.addAttribute("order", order);
             return "order_detail";
         } catch (Exception e) {
-            model.addAttribute("error", "Terjadi kesalahan saat memuat detail pesanan");
+            logger.error("Exception saat load detail order id {}: {}", orderId, e.getMessage(), e);
+            model.addAttribute("error", "Terjadi kesalahan saat memuat detail pesanan: " + e.getMessage());
             return "error";
+        }
+    }
+
+    @GetMapping("/order/detail/pdf")
+    public void downloadOrderPdf(@RequestParam("id") Long orderId, HttpServletResponse response, @AuthenticationPrincipal UserDetails userDetails) {
+        try {
+            Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Pesanan tidak ditemukan"));
+            if (order.getCustomer() == null || !order.getCustomer().getUsername().equals(userDetails.getUsername())) {
+                response.sendError(HttpServletResponse.SC_FORBIDDEN, "Akses ditolak");
+                return;
+            }
+            response.setContentType("application/pdf");
+            response.setHeader("Content-Disposition", "attachment; filename=order-" + orderId + ".pdf");
+            com.itextpdf.text.Document document = new com.itextpdf.text.Document();
+            com.itextpdf.text.pdf.PdfWriter.getInstance(document, response.getOutputStream());
+            document.open();
+            com.itextpdf.text.Font titleFont = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 28, com.itextpdf.text.Font.BOLD);
+            com.itextpdf.text.Font sectionFont = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 20, com.itextpdf.text.Font.BOLD);
+            com.itextpdf.text.Font labelFont = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 16, com.itextpdf.text.Font.BOLD);
+            document.add(new com.itextpdf.text.Paragraph("Detail Pesanan #" + order.getId(), titleFont));
+            document.add(new com.itextpdf.text.Paragraph(" "));
+            document.add(new com.itextpdf.text.Paragraph("Informasi Pesanan", sectionFont));
+            document.add(new com.itextpdf.text.Paragraph("Tipe Rumah: " + (order.getHouseType() != null ? order.getHouseType().toString() : "-"), labelFont));
+            document.add(new com.itextpdf.text.Paragraph("Lokasi: " + (order.getRegion() != null ? order.getRegion().toString() : "-"), labelFont));
+            document.add(new com.itextpdf.text.Paragraph("Metode Pembayaran: " + (order.getPaymentType() != null ? order.getPaymentType().toString() : "-"), labelFont));
+            // Status color
+            String status = order.getStatus() != null ? order.getStatus() : "-";
+            com.itextpdf.text.BaseColor statusColor = com.itextpdf.text.BaseColor.BLACK;
+            if ("APPROVED".equalsIgnoreCase(status)) statusColor = com.itextpdf.text.BaseColor.GREEN;
+            else if ("REJECTED".equalsIgnoreCase(status)) statusColor = com.itextpdf.text.BaseColor.RED;
+            else if ("PENDING".equalsIgnoreCase(status)) statusColor = new com.itextpdf.text.BaseColor(255, 204, 0); // yellow
+            com.itextpdf.text.Chunk statusChunk = new com.itextpdf.text.Chunk(status, new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 16, com.itextpdf.text.Font.BOLD, statusColor));
+            com.itextpdf.text.Paragraph statusParagraph = new com.itextpdf.text.Paragraph();
+            statusParagraph.add(new com.itextpdf.text.Chunk("Status: ", labelFont));
+            statusParagraph.add(statusChunk);
+            document.add(statusParagraph);
+            document.add(new com.itextpdf.text.Paragraph("Tanggal Pesanan: " + (order.getOrderDate() != null ? order.getOrderDate().toString() : "-"), labelFont));
+            document.add(new com.itextpdf.text.Paragraph("Total Harga: " + (order.getTotal() != null ? "Rp " + order.getTotal().toString() : "-"), labelFont));
+            document.add(new com.itextpdf.text.Paragraph(" "));
+            document.add(new com.itextpdf.text.Paragraph("Detail Pembayaran", sectionFont));
+            document.add(new com.itextpdf.text.Paragraph("Uang Muka: " + (order.getDownPayment() != null ? "Rp " + order.getDownPayment().toString() : "-"), labelFont));
+            document.add(new com.itextpdf.text.Paragraph("Sisa Pembayaran: " + (order.getTotal() != null && order.getDownPayment() != null ? "Rp " + order.getTotal().subtract(order.getDownPayment()).toString() : "-"), labelFont));
+            document.add(new com.itextpdf.text.Paragraph("Jangka Waktu: " + (order.getInstallmentPeriod() != null ? order.getInstallmentPeriod() + " Bulan" : "-"), labelFont));
+            document.add(new com.itextpdf.text.Paragraph("Cicilan per Bulan: " + (order.getTotal() != null && order.getDownPayment() != null && order.getInstallmentPeriod() != null && order.getInstallmentPeriod() > 0 ? "Rp " + order.getTotal().subtract(order.getDownPayment()).divide(new java.math.BigDecimal(order.getInstallmentPeriod()), 2, java.math.RoundingMode.HALF_UP).toString() : "-"), labelFont));
+            document.close();
+        } catch (Exception e) {
+            try {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Gagal membuat PDF: " + e.getMessage());
+            } catch (Exception ignored) {}
         }
     }
 }
