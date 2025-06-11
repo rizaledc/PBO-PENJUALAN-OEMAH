@@ -175,10 +175,12 @@ public class SellerController {
                         customer.setEmail(user.getEmail());
                         customer.setPhone(user.getPhone());
                         customer.setJoinDate(java.time.LocalDateTime.now());
-                        customer.setTotalOrders(1);
-                    } else {
-                        customer.setTotalOrders(customer.getTotalOrders() == null ? 1 : customer.getTotalOrders() + 1);
                     }
+                    // Hitung ulang total pesanan yang APPROVED untuk pelanggan ini
+                    long approvedOrdersCount = orderRepository.findByCustomer(user).stream()
+                        .filter(o -> "APPROVED".equalsIgnoreCase(o.getStatus()))
+                        .count();
+                    customer.setTotalOrders((int) approvedOrdersCount);
                     customerRepository.save(customer);
                 }
                 redirectAttributes.addFlashAttribute("message", "Pesanan berhasil di-approve");
@@ -209,10 +211,12 @@ public class SellerController {
                         customer.setEmail(user.getEmail());
                         customer.setPhone(user.getPhone());
                         customer.setJoinDate(java.time.LocalDateTime.now());
-                        customer.setTotalOrders(1);
-                    } else {
-                        customer.setTotalOrders(customer.getTotalOrders() == null ? 1 : customer.getTotalOrders() + 1);
                     }
+                    // Hitung ulang total pesanan yang APPROVED untuk pelanggan ini
+                    long approvedOrdersCount = orderRepository.findByCustomer(user).stream()
+                        .filter(o -> "APPROVED".equalsIgnoreCase(o.getStatus()))
+                        .count();
+                    customer.setTotalOrders((int) approvedOrdersCount);
                     customerRepository.save(customer);
                 }
                 redirectAttributes.addFlashAttribute("message", "Pesanan berhasil di-reject");
