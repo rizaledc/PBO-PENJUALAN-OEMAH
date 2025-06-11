@@ -1,6 +1,6 @@
 package com.penjualanrumah.service;
 
-import org.springframework.stereotype.*;
+import org.springframework.stereotype.Service;
 
 @Service
 public class SellerService {

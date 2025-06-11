@@ -16,6 +16,9 @@ import com.penjualanrumah.model.Order;
 import com.penjualanrumah.model.Customer;
 import java.util.List;
 import java.time.LocalDate;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/seller")
@@ -37,9 +40,15 @@ public class SellerController {
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
         try {
-            // Tambahkan data yang diperlukan untuk dashboard
-            model.addAttribute("totalOrders", orderRepository.count());
+            // Ambil semua pesanan yang statusnya PENDING
+            List<Order> pendingOrders = orderRepository.findAll().stream()
+                .filter(order -> "PENDING".equals(order.getStatus()))
+                .toList();
+            
+            model.addAttribute("totalOrders", pendingOrders.size());
             model.addAttribute("totalCustomers", customerRepository.count());
+            // Tambahkan daftar pesanan yang PENDING ke dashboard
+            model.addAttribute("orders", pendingOrders);
             return "seller_dashboard";
         } catch (Exception e) {
             model.addAttribute("error", "Terjadi kesalahan saat memuat dashboard");
@@ -52,23 +61,36 @@ public class SellerController {
             @RequestParam(required = false) String customer,
             @RequestParam(required = false) String region,
             @RequestParam(required = false) String date,
+            @RequestParam(required = false) String status, // Filter berdasarkan status
             Model model
     ) {
         try {
-            List<Order> orders = orderRepository.findAll();
+            // Ambil semua pesanan yang berstatus APPROVED saja
+            List<Order> orders = orderRepository.findAll().stream()
+                .filter(order -> "APPROVED".equals(order.getStatus()))
+                .toList();
             
+            // Filter berdasarkan status pesanan jika ada
+            if (status != null && !status.isEmpty()) {
+                orders = orders.stream()
+                    .filter(order -> order.getStatus().equalsIgnoreCase(status))
+                    .toList();
+            }
+
             // Filter berdasarkan nama pelanggan
             if (customer != null && !customer.isEmpty()) {
                 orders = orders.stream()
                     .filter(order -> order.getCustomer() != null && order.getCustomer().getUsername().toLowerCase().contains(customer.toLowerCase()))
                     .toList();
             }
+
             // Filter berdasarkan region
             if (region != null && !region.isEmpty()) {
                 orders = orders.stream()
                     .filter(order -> order.getRegion().toString().equals(region))
                     .toList();
             }
+
             // Filter berdasarkan tanggal
             if (date != null && !date.isEmpty()) {
                 LocalDate filterDate = LocalDate.parse(date);
@@ -76,10 +98,12 @@ public class SellerController {
                     .filter(order -> order.getOrderDate().toLocalDate().equals(filterDate))
                     .toList();
             }
+
             model.addAttribute("orders", orders);
             model.addAttribute("selectedCustomer", customer);
             model.addAttribute("selectedRegion", region);
             model.addAttribute("selectedDate", date);
+            model.addAttribute("selectedStatus", status); // Tambahkan status yang dipilih ke model
             return "seller_orders";
         } catch (Exception e) {
             model.addAttribute("error", "Terjadi kesalahan saat memuat data pesanan");
@@ -95,21 +119,99 @@ public class SellerController {
     ) {
         try {
             List<Customer> customers = customerRepository.findAll();
-            
+            // Filter hanya pelanggan yang punya order APPROVED/REJECTED
+            customers = customers.stream()
+                .filter(customer -> {
+                    // Cari order dengan customer email yang sama
+                    return orderRepository.findAll().stream()
+                        .anyMatch(order ->
+                            (order.getCustomer() != null && order.getCustomer().getEmail().equalsIgnoreCase(customer.getEmail())) &&
+                            ("APPROVED".equals(order.getStatus()) || "REJECTED".equals(order.getStatus()))
+                        );
+                })
+                .toList();
             // Filter berdasarkan nama
             if (name != null && !name.isEmpty()) {
                 customers = customers.stream()
                     .filter(customer -> customer.getName().toLowerCase().contains(name.toLowerCase()))
                     .toList();
             }
-            
             // Filter berdasarkan email
             if (email != null && !email.isEmpty()) {
                 customers = customers.stream()
                     .filter(customer -> customer.getEmail().toLowerCase().contains(email.toLowerCase()))
                     .toList();
             }
+            model.addAttribute("customers", customers);
+            model.addAttribute("searchName", name);
+            model.addAttribute("searchEmail", email);
+            return "seller_customers";
+        } catch (Exception e) {
+            model.addAttribute("error", "Terjadi kesalahan saat memuat data pelanggan");
+            return "error";
+        }
+    }
 
+    @PostMapping("/order/{orderId}/approve")
+    public String approveOrder(@PathVariable Long orderId, RedirectAttributes redirectAttributes) {
+        try {
+            Order order = orderRepository.findById(orderId).orElse(null);
+            if (order != null) {
+                order.setStatus("APPROVED");
+                orderRepository.save(order);
+                redirectAttributes.addFlashAttribute("message", "Pesanan berhasil di-approve");
+            }
+            // Arahkan ke halaman pesanan setelah di-approve
+            return "redirect:/seller/orders"; 
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Gagal approve pesanan");
+            return "redirect:/seller/orders";
+        }
+    }
+
+    @PostMapping("/order/{orderId}/reject")
+    public String rejectOrder(@PathVariable Long orderId, RedirectAttributes redirectAttributes) {
+        try {
+            Order order = orderRepository.findById(orderId).orElse(null);
+            if (order != null) {
+                order.setStatus("REJECTED");
+                orderRepository.save(order);
+                redirectAttributes.addFlashAttribute("message", "Pesanan berhasil di-reject");
+            }
+            // Arahkan ke halaman pesanan setelah di-reject
+            return "redirect:/seller/orders";
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Gagal reject pesanan");
+            return "redirect:/seller/orders";
+        }
+    }
+
+// Endpoint untuk menampilkan daftar pelanggan
+    @GetMapping("/users")
+    public String users(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String email,
+            Model model
+    ) {
+        try {
+            // Ambil semua pelanggan dari database
+            List<Customer> customers = customerRepository.findAll();
+            
+            // Filter pelanggan berdasarkan nama jika ada
+            if (name != null && !name.isEmpty()) {
+                customers = customers.stream()
+                    .filter(customer -> customer.getName().toLowerCase().contains(name.toLowerCase()))
+                    .toList();
+            }
+
+            // Filter pelanggan berdasarkan email jika ada
+            if (email != null && !email.isEmpty()) {
+                customers = customers.stream()
+                    .filter(customer -> customer.getEmail().toLowerCase().contains(email.toLowerCase()))
+                    .toList();
+            }
+
+            // Kirim data pelanggan ke halaman
             model.addAttribute("customers", customers);
             model.addAttribute("searchName", name);
             model.addAttribute("searchEmail", email);
