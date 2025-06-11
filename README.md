@@ -1,4 +1,11 @@
-# Penjualan Oemah
+# <h1 align="center">PENJUALAN RUMAH</h1>
+<p align="center">RIZAL WAHYU PRATAMA (2311110029)</p>
+<p align="center">KHULIKA MALKAN (2311110057)</p>
+<p align="center">MIKHAEL SETIA BUDI (2311110033)</p>
+<p align="center">WISNU AJI SANJAYA (2311110036)</p>
+<p align="center">YOKA RAMADANI (2311110060)</p>
+<p align="center">FAHMI HIDAYAT (2311110063)</p>
+
 Proyek ini adalah bagian dari mata kuliah PASD yang dikembangkan oleh Kelompok WeCan. Repositori ini berisi kode sumber untuk sistem informasi yang mencakup modul-modul penting serta alur kerja aplikasinya.
 
 ## Daftar Isi
