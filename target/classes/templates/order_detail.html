@@ -61,7 +61,7 @@
                                 <h4 class="card-title mb-4">Detail Pembayaran</h4>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <p><strong>Uang Muka:</strong> Rp <span th:text="${order.downPayment != null ? #numbers.formatDecimal(order.downPayment, 0, 'POINT', 0, 'COMMA') : '-'}"></span></p>
+                                        <p><strong>Uang Muka (DP):</strong> Rp <span th:text="${order.downPayment != null ? #numbers.formatDecimal(order.downPayment, 0, 'POINT', 0, 'COMMA') : '-'}"></span></p>
                                         <p><strong>Sisa Pembayaran:</strong> Rp <span th:text="${order.total != null && order.downPayment != null ? #numbers.formatDecimal(order.total.subtract(order.downPayment), 0, 'POINT', 0, 'COMMA') : '-'}"></span></p>
                                     </div>
                                     <div class="col-md-6">
