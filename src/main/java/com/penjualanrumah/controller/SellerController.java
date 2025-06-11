@@ -19,6 +19,7 @@ import java.time.LocalDate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.penjualanrumah.model.User;
 
 @Controller
 @RequestMapping("/seller")
@@ -30,6 +31,9 @@ public class SellerController {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private com.penjualanrumah.repository.UserRepository userRepository;
 
     @ModelAttribute
     public void addAttributes(Model model) {
@@ -159,10 +163,27 @@ public class SellerController {
             if (order != null) {
                 order.setStatus("APPROVED");
                 orderRepository.save(order);
+                // Tambahkan/Update Customer di tabel customers
+                User user = order.getCustomer();
+                if (user != null) {
+                    Customer customer = customerRepository.findAll().stream()
+                        .filter(c -> c.getEmail().equalsIgnoreCase(user.getEmail()))
+                        .findFirst().orElse(null);
+                    if (customer == null) {
+                        customer = new Customer();
+                        customer.setName(user.getFullName());
+                        customer.setEmail(user.getEmail());
+                        customer.setPhone(user.getPhone());
+                        customer.setJoinDate(java.time.LocalDateTime.now());
+                        customer.setTotalOrders(1);
+                    } else {
+                        customer.setTotalOrders(customer.getTotalOrders() == null ? 1 : customer.getTotalOrders() + 1);
+                    }
+                    customerRepository.save(customer);
+                }
                 redirectAttributes.addFlashAttribute("message", "Pesanan berhasil di-approve");
             }
-            // Arahkan ke halaman pesanan setelah di-approve
-            return "redirect:/seller/orders"; 
+            return "redirect:/seller/orders";
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Gagal approve pesanan");
             return "redirect:/seller/orders";
@@ -176,9 +197,25 @@ public class SellerController {
             if (order != null) {
                 order.setStatus("REJECTED");
                 orderRepository.save(order);
+                // Hanya tambahkan customer jika belum ada, JANGAN ubah totalOrders jika sudah ada
+                User user = order.getCustomer();
+                if (user != null) {
+                    Customer customer = customerRepository.findAll().stream()
+                        .filter(c -> c.getEmail().equalsIgnoreCase(user.getEmail()))
+                        .findFirst().orElse(null);
+                    if (customer == null) {
+                        customer = new Customer();
+                        customer.setName(user.getFullName());
+                        customer.setEmail(user.getEmail());
+                        customer.setPhone(user.getPhone());
+                        customer.setJoinDate(java.time.LocalDateTime.now());
+                        customer.setTotalOrders(0); // Customer baru, totalOrders tetap 0
+                        customerRepository.save(customer);
+                    }
+                    // Jika customer sudah ada, tidak perlu update totalOrders
+                }
                 redirectAttributes.addFlashAttribute("message", "Pesanan berhasil di-reject");
             }
-            // Arahkan ke halaman pesanan setelah di-reject
             return "redirect:/seller/orders";
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Gagal reject pesanan");
