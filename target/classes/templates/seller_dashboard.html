@@ -98,6 +98,7 @@
                                         <th>Tipe Rumah</th>
                                         <th>Lokasi</th>
                                         <th>Pembayaran</th>
+                                        <th>Uang Muka (DP)</th>
                                         <th>Status</th>
                                         <th>Tanggal</th>
                                         <th>Aksi</th>
@@ -110,6 +111,7 @@
                                         <td th:text="${order.houseType}"></td>
                                         <td th:text="${order.region}"></td>
                                         <td th:text="${order.paymentType}"></td>
+                                        <td th:text="${#numbers.formatDecimal(order.downPayment, 0, 'POINT', 0, 'COMMA')}"></td>
                                         <td>
                                             <span th:classappend="'status-badge ' +
                                                 (${order.status} == 'PENDING' ? 'status-pending' :
@@ -131,7 +133,7 @@
                                         </td>
                                     </tr>
                                     <tr th:if="${orders.size()} == 0">
-                                        <td colspan="8" class="text-center">Tidak ada pesanan yang pending.</td>
+                                        <td colspan="9" class="text-center">Tidak ada pesanan yang pending.</td>
                                     </tr>
                                 </tbody>
                             </table>

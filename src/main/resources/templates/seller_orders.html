@@ -106,6 +106,7 @@
                                         <th>Tipe Rumah</th>
                                         <th>Lokasi</th>
                                         <th>Pembayaran</th>
+                                        <th>Uang Muka (DP)</th>
                                         <th>Status</th>
                                         <th>Tanggal</th>
                                     </tr>
@@ -117,6 +118,7 @@
                                         <td th:text="${order.houseType}"></td>
                                         <td th:text="${order.region}"></td>
                                         <td th:text="${order.paymentType}"></td>
+                                        <td th:text="${#numbers.formatDecimal(order.downPayment, 0, 'POINT', 0, 'COMMA')}"></td>
                                         <td>
                                             <span class="status-badge status-approved">
                                                 <span th:text="${order.status}"></span>
@@ -125,7 +127,7 @@
                                         <td th:text="${#temporals.format(order.orderDate, 'dd-MM-yyyy')}"></td>
                                     </tr>
                                     <tr th:if="${orders.size()} == 0">
-                                        <td colspan="7" class="text-center">Tidak ada pesanan yang di-approve</td>
+                                        <td colspan="8" class="text-center">Tidak ada pesanan yang di-approve</td>
                                     </tr>
                                 </tbody>
                             </table>

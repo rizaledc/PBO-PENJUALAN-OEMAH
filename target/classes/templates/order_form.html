@@ -186,6 +186,13 @@
             const housePrice = housePrices[selectedHouseType] || 0;
             const remainingLoan = housePrice - downPayment;
 
+            // Validasi: Uang Muka tidak boleh lebih dari Harga Rumah
+            if (downPayment > housePrice) {
+                downPaymentInput.setCustomValidity('Uang Muka tidak boleh lebih besar dari Harga Rumah.');
+            } else {
+                downPaymentInput.setCustomValidity('');
+            }
+
             displayHousePrice.textContent = formatCurrency(housePrice);
             displayDownPayment.textContent = formatCurrency(downPayment);
             displayRemainingLoan.textContent = formatCurrency(remainingLoan);
