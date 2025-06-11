@@ -19,7 +19,7 @@
 Untuk menjalankan proyek ini di lingkungan lokal Anda, ikuti langkah-langkah berikut:
 1.  *Clone Repositori:*
     bash
-    git clone [[https://github.com/rizaledc/PBO-PENJUALAN-OEMAH.git)](https://github.com/rizaledc/PBO-PENJUALAN-OEMAH.git)
+    git clone [[https://github.com/rizaledc/PBO-PENJUALAN-OEMAH.git](https://github.com/rizaledc/PBO-PENJUALAN-OEMAH.git)
     
 2.  *Masuk ke Direktori Proyek:*
     bash
