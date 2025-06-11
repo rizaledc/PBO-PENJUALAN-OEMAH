@@ -60,7 +60,7 @@
                 </div>
                 <div>
                     <label for="phone" class="block text-sm font-semibold text-gray-700">Nomor Telepon</label>
-                    <input type="tel" id="phone" th:field="*{phone}" required
+                    <input type="text" id="phone" th:field="*{phone}" required pattern="[0-9]*"
                            class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div>
@@ -128,6 +128,18 @@
 
             roleSelect.addEventListener('change', toggleSellerCodeInput);
             toggleSellerCodeInput(); // Initial check on page load
+
+            // Phone number validation
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', function(e) {
+                // Remove any non-digit characters
+                this.value = this.value.replace(/[^0-9]/g, '');
+
+                // Prevent negative numbers (though typically not an issue for phone numbers, as per request)
+                if (parseInt(this.value) < 0) {
+                    this.value = '';
+                }
+            });
         });
     </script>
 </body>
