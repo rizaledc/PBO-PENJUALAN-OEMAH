@@ -1,4 +1,4 @@
-# <h1 align="center">PENJUALAN RUMAH</h1>
+# <h1 align="center">TUGAS BESAR PBO/OOP - PENJUALAN RUMAH</h1>
 <p align="center">RIZAL WAHYU PRATAMA (2311110029)</p>
 <p align="center">KHULIKA MALKAN (2311110057)</p>
 <p align="center">MIKHAEL SETIA BUDI (2311110033)</p>
