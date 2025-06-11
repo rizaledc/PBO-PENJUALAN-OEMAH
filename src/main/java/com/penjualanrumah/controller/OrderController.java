@@ -18,6 +18,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class OrderController {
@@ -28,6 +30,14 @@ public class OrderController {
     private UserService userService;
 
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
+
+    private static final Map<Order.HouseType, BigDecimal> HOUSE_PRICES = new HashMap<>();
+
+    static {
+        HOUSE_PRICES.put(Order.HouseType.TYPE_36, new BigDecimal("150000000"));
+        HOUSE_PRICES.put(Order.HouseType.TYPE_47, new BigDecimal("200000000"));
+        HOUSE_PRICES.put(Order.HouseType.TYPE_57, new BigDecimal("250000000"));
+    }
 
     @GetMapping("/order")
     public String showOrderPage(Model model) {
@@ -60,6 +70,13 @@ public class OrderController {
             order.setDownPayment(BigDecimal.valueOf(downPayment));
             order.setInstallmentPeriod(installmentPeriod);
             
+            // Set total based on house type
+            BigDecimal total = HOUSE_PRICES.get(order.getHouseType());
+            if (total == null) {
+                throw new IllegalArgumentException("Tipe rumah tidak valid");
+            }
+            order.setTotal(total);
+
             User user = userService.findByUsername(userDetails.getUsername());
             if (user == null) {
                 redirectAttributes.addFlashAttribute("error", "User tidak ditemukan. Silakan login ulang.");
