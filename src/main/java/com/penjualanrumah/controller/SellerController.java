@@ -32,6 +32,7 @@ public class SellerController {
     @Autowired
     private CustomerRepository customerRepository;
 
+
     @ModelAttribute
     public void addAttributes(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -183,7 +184,6 @@ public class SellerController {
             return "redirect:/seller/orders";
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Gagal approve pesanan");
-            e.printStackTrace();
             return "redirect:/seller/orders";
         }
     }
@@ -217,7 +217,6 @@ public class SellerController {
             return "redirect:/seller/orders";
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Gagal reject pesanan");
-            e.printStackTrace();
             return "redirect:/seller/orders";
         }
     }

@@ -98,8 +98,6 @@
                                         <th>Tipe Rumah</th>
                                         <th>Lokasi</th>
                                         <th>Pembayaran</th>
-                                        <th>Uang Muka</th>
-                                        <th>Sisa Pembayaran</th>
                                         <th>Status</th>
                                         <th>Tanggal</th>
                                         <th>Aksi</th>
@@ -112,8 +110,6 @@
                                         <td th:text="${order.houseType}"></td>
                                         <td th:text="${order.region}"></td>
                                         <td th:text="${order.paymentType}"></td>
-                                        <td th:text="${#numbers.formatDecimal(order.downPayment, 0, 'POINT', 0, 'COMMA')}"></td>
-                                        <td th:text="${#numbers.formatDecimal(order.total - order.downPayment, 0, 'POINT', 0, 'COMMA')}"></td>
                                         <td>
                                             <span th:classappend="'status-badge ' +
                                                 (${order.status} == 'PENDING' ? 'status-pending' :
@@ -124,18 +120,18 @@
                                         </td>
                                         <td th:text="${#temporals.format(order.orderDate, 'dd-MM-yyyy')}"></td>
                                         <td>
-                                            <form th:action="@{/seller/order/{orderId}/approve(orderId=${order.id})}" method="post" style="display:inline">
+                                            <form th:action="@{'/seller/order/' + ${order.id} + '/approve'}" method="post" style="display:inline">
                                                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                                                 <button type="submit" class="btn btn-sm btn-success">Approve</button>
                                             </form>
-                                            <form th:action="@{/seller/order/{orderId}/reject(orderId=${order.id})}" method="post" style="display:inline">
+                                            <form th:action="@{'/seller/order/' + ${order.id} + '/reject'}" method="post" style="display:inline">
                                                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                                                 <button type="submit" class="btn btn-sm btn-danger">Reject</button>
                                             </form>
                                         </td>
                                     </tr>
                                     <tr th:if="${orders.size()} == 0">
-                                        <td colspan="10" class="text-center">Tidak ada pesanan yang pending.</td>
+                                        <td colspan="8" class="text-center">Tidak ada pesanan yang pending.</td>
                                     </tr>
                                 </tbody>
                             </table>
