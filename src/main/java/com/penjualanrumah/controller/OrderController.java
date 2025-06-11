@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.Comparator;
 
 @Controller
 public class OrderController {
@@ -118,6 +119,9 @@ public class OrderController {
 
             List<Order> orders = orderRepository.findAll().stream()
                 .filter(o -> o.getCustomer() != null && o.getCustomer().getUsername().equals(userDetails.getUsername()))
+                .sorted(Comparator
+                    .comparing(Order::getPaymentType) // Sort by PaymentType (CASH, then INSTALLMENTS as per enum order)
+                    .thenComparing(Order::getOrderDate, Comparator.reverseOrder())) // Then by OrderDate (newest first)
                 .toList();
             model.addAttribute("orders", orders);
             return "order_history";
