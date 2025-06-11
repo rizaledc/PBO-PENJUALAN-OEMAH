@@ -19,38 +19,25 @@
 Untuk menjalankan proyek ini di lingkungan lokal Anda, ikuti langkah-langkah berikut:
 1.  *Clone Repositori:*
     bash
-    git clone https://github.com/rizaledc/PASD-Kelompok-WeCan.git
+    git clone [https://github.com/rizaledc/PASD-Kelompok-WeCan.git](https://github.com/rizaledc/PBO-PENJUALAN-OEMAH.git)
     
 2.  *Masuk ke Direktori Proyek:*
     bash
     cd Nama-Folder-Proyek-Anda
     
-3.  *Buat dan Aktifkan Virtual Environment (venv):*
-    *   *Windows:*
+3.  *Jalankan code di terminal:*
         bash
-        python -m venv venv
-        .\venv\Scripts\activate
+        mvn spring-boot:run
         
-4.  *Instal Dependensi:*
-    Pastikan Anda memiliki file requirements.txt di root proyek yang berisi daftar library yang dibutuhkan (misalnya Flask).
-    bash
-    pip install -r requirements.txt
-    
-    *(Jika file requirements.txt belum ada, buatlah dengan pip freeze > requirements.txt setelah menginstal semua library yang dibutuhkan secara manual).*
-
-## Cara Menjalankan Aplikasi
-Setelah setup selesai dan virtual environment aktif, jalankan aplikasi Flask:
-1.  Pastikan Anda berada di root folder proyek dan venv sudah aktif.
-2.  Jalankan perintah:
-    bash
-    flask run
-3.  Aplikasi akan berjalan di http://127.0.0.1:5000/ (atau alamat lain yang tertera di output terminal).
+4.  *Buka Google Chorome/Browser lainnya:*
+    Aplikasi akan berjalan di http://localhost:8080/
 
 
 ## Kontributor
-Proyek ini dikembangkan oleh Kelompok WeCan:
-- [Rizal Wahyu Pratama] - [Fitur login, registrasi, profile]
-- [Khulika Malkan] - [Fitur dashboard, Statistika dan Leaderboard]
-- [Mikhael Setia Budi] - [Membuat dan Mengintegrasikan Dashboard]
-- [Irena Cahya Resinah] - [Merapihkan UI (tampilan Aplikasi)]
----
+Proyek ini dikembangkan oleh Kelompok 01:
+- [Rizal Wahyu Pratama] - 
+- [Khulika Malkan] - 
+- [Mikhael Setia Budi] -
+- [Wisnu Aji Sanjaya] - 
+- [Yoka Ramadani] - 
+- [Fahmi Hidayat] - 
