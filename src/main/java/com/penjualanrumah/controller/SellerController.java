@@ -44,7 +44,7 @@ public class SellerController {
         try {
             // Ambil semua pesanan yang statusnya PENDING
             List<Order> pendingOrders = orderRepository.findAll().stream()
-                .filter(order -> "PENDING".equals(order.getStatus()))
+                .filter(order -> order != null && order.getStatus() != null && "PENDING".equals(order.getStatus()))
                 .toList();
             
             model.addAttribute("totalOrders", pendingOrders.size());
@@ -53,7 +53,7 @@ public class SellerController {
             model.addAttribute("orders", pendingOrders);
             return "seller_dashboard";
         } catch (Exception e) {
-            model.addAttribute("error", "Terjadi kesalahan saat memuat dashboard");
+            model.addAttribute("error", "Terjadi kesalahan saat memuat dashboard: " + e.getMessage());
             return "error";
         }
     }
@@ -69,27 +69,27 @@ public class SellerController {
         try {
             // Ambil semua pesanan yang berstatus APPROVED saja
             List<Order> orders = orderRepository.findAll().stream()
-                .filter(order -> "APPROVED".equals(order.getStatus()))
+                .filter(order -> order != null && order.getStatus() != null && "APPROVED".equals(order.getStatus()))
                 .toList();
             
             // Filter berdasarkan status pesanan jika ada
             if (status != null && !status.isEmpty()) {
                 orders = orders.stream()
-                    .filter(order -> order.getStatus().equalsIgnoreCase(status))
+                    .filter(order -> order != null && order.getStatus() != null && order.getStatus().equalsIgnoreCase(status))
                     .toList();
             }
 
             // Filter berdasarkan nama pelanggan
             if (customer != null && !customer.isEmpty()) {
                 orders = orders.stream()
-                    .filter(order -> order.getCustomer() != null && order.getCustomer().getUsername().toLowerCase().contains(customer.toLowerCase()))
+                    .filter(order -> order != null && order.getCustomer() != null && order.getCustomer().getUsername() != null && order.getCustomer().getUsername().toLowerCase().contains(customer.toLowerCase()))
                     .toList();
             }
 
             // Filter berdasarkan region
             if (region != null && !region.isEmpty()) {
                 orders = orders.stream()
-                    .filter(order -> order.getRegion().toString().equals(region))
+                    .filter(order -> order != null && order.getRegion() != null && order.getRegion().toString().equals(region))
                     .toList();
             }
 
@@ -97,7 +97,7 @@ public class SellerController {
             if (date != null && !date.isEmpty()) {
                 LocalDate filterDate = LocalDate.parse(date);
                 orders = orders.stream()
-                    .filter(order -> order.getOrderDate().toLocalDate().equals(filterDate))
+                    .filter(order -> order != null && order.getOrderDate() != null && order.getOrderDate().toLocalDate().equals(filterDate))
                     .toList();
             }
 
@@ -108,7 +108,7 @@ public class SellerController {
             model.addAttribute("selectedStatus", status); // Tambahkan status yang dipilih ke model
             return "seller_orders";
         } catch (Exception e) {
-            model.addAttribute("error", "Terjadi kesalahan saat memuat data pesanan");
+            model.addAttribute("error", "Terjadi kesalahan saat memuat data pesanan: " + e.getMessage());
             return "error";
         }
     }
@@ -127,29 +127,31 @@ public class SellerController {
                     // Cari order dengan customer email yang sama
                     return orderRepository.findAll().stream()
                         .anyMatch(order ->
-                            (order.getCustomer() != null && order.getCustomer().getEmail().equalsIgnoreCase(customer.getEmail())) &&
-                            ("APPROVED".equals(order.getStatus()) || "REJECTED".equals(order.getStatus()))
+                            order != null && order.getCustomer() != null && customer.getEmail() != null && order.getCustomer().getEmail() != null && order.getCustomer().getEmail().equalsIgnoreCase(customer.getEmail()) &&
+                            order.getStatus() != null && ("APPROVED".equals(order.getStatus()) || "REJECTED".equals(order.getStatus()))
                         );
                 })
                 .toList();
             // Filter berdasarkan nama
             if (name != null && !name.isEmpty()) {
                 customers = customers.stream()
-                    .filter(customer -> customer.getName().toLowerCase().contains(name.toLowerCase()))
+                    .filter(customer -> customer != null && customer.getName() != null && customer.getName().toLowerCase().contains(name.toLowerCase()))
                     .toList();
             }
+            
             // Filter berdasarkan email
             if (email != null && !email.isEmpty()) {
                 customers = customers.stream()
-                    .filter(customer -> customer.getEmail().toLowerCase().contains(email.toLowerCase()))
+                    .filter(customer -> customer != null && customer.getEmail() != null && customer.getEmail().toLowerCase().contains(email.toLowerCase()))
                     .toList();
             }
+
             model.addAttribute("customers", customers);
             model.addAttribute("searchName", name);
             model.addAttribute("searchEmail", email);
             return "seller_customers";
         } catch (Exception e) {
-            model.addAttribute("error", "Terjadi kesalahan saat memuat data pelanggan");
+            model.addAttribute("error", "Terjadi kesalahan saat memuat data pelanggan: " + e.getMessage());
             return "error";
         }
     }
@@ -163,9 +165,9 @@ public class SellerController {
                 orderRepository.save(order);
                 // Tambahkan/Update Customer di tabel customers
                 User user = order.getCustomer();
-                if (user != null) {
+                if (user != null && user.getEmail() != null) {
                     Customer customer = customerRepository.findAll().stream()
-                        .filter(c -> c.getEmail().equalsIgnoreCase(user.getEmail()))
+                        .filter(c -> c != null && c.getEmail() != null && c.getEmail().equalsIgnoreCase(user.getEmail()))
                         .findFirst().orElse(null);
                     if (customer == null) {
                         customer = new Customer();
@@ -183,7 +185,7 @@ public class SellerController {
             }
             return "redirect:/seller/orders";
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Gagal approve pesanan");
+            redirectAttributes.addFlashAttribute("error", "Gagal approve pesanan: " + e.getMessage());
             return "redirect:/seller/orders";
         }
     }
@@ -195,11 +197,11 @@ public class SellerController {
             if (order != null) {
                 order.setStatus("REJECTED");
                 orderRepository.save(order);
-                // Hanya tambahkan customer jika belum ada, JANGAN ubah totalOrders jika sudah ada
+                // Tambahkan/Update Customer di tabel customers
                 User user = order.getCustomer();
-                if (user != null) {
+                if (user != null && user.getEmail() != null) {
                     Customer customer = customerRepository.findAll().stream()
-                        .filter(c -> c.getEmail().equalsIgnoreCase(user.getEmail()))
+                        .filter(c -> c != null && c.getEmail() != null && c.getEmail().equalsIgnoreCase(user.getEmail()))
                         .findFirst().orElse(null);
                     if (customer == null) {
                         customer = new Customer();
@@ -207,16 +209,17 @@ public class SellerController {
                         customer.setEmail(user.getEmail());
                         customer.setPhone(user.getPhone());
                         customer.setJoinDate(java.time.LocalDateTime.now());
-                        customer.setTotalOrders(0); // Customer baru, totalOrders tetap 0
-                        customerRepository.save(customer);
+                        customer.setTotalOrders(1);
+                    } else {
+                        customer.setTotalOrders(customer.getTotalOrders() == null ? 1 : customer.getTotalOrders() + 1);
                     }
-                    // Jika customer sudah ada, tidak perlu update totalOrders
+                    customerRepository.save(customer);
                 }
                 redirectAttributes.addFlashAttribute("message", "Pesanan berhasil di-reject");
             }
             return "redirect:/seller/orders";
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Gagal reject pesanan");
+            redirectAttributes.addFlashAttribute("error", "Gagal reject pesanan: " + e.getMessage());
             return "redirect:/seller/orders";
         }
     }
@@ -235,14 +238,14 @@ public class SellerController {
             // Filter pelanggan berdasarkan nama jika ada
             if (name != null && !name.isEmpty()) {
                 customers = customers.stream()
-                    .filter(customer -> customer.getName().toLowerCase().contains(name.toLowerCase()))
+                    .filter(customer -> customer != null && customer.getName() != null && customer.getName().toLowerCase().contains(name.toLowerCase()))
                     .toList();
             }
 
             // Filter pelanggan berdasarkan email jika ada
             if (email != null && !email.isEmpty()) {
                 customers = customers.stream()
-                    .filter(customer -> customer.getEmail().toLowerCase().contains(email.toLowerCase()))
+                    .filter(customer -> customer != null && customer.getEmail() != null && customer.getEmail().toLowerCase().contains(email.toLowerCase()))
                     .toList();
             }
 
@@ -252,7 +255,7 @@ public class SellerController {
             model.addAttribute("searchEmail", email);
             return "seller_customers";
         } catch (Exception e) {
-            model.addAttribute("error", "Terjadi kesalahan saat memuat data pelanggan");
+            model.addAttribute("error", "Terjadi kesalahan saat memuat data pelanggan: " + e.getMessage());
             return "error";
         }
     }
