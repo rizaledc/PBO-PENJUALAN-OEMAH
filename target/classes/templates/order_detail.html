@@ -109,7 +109,7 @@
             <div class="col-md-9 col-lg-10 main-content">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2>Detail Pesanan #<span th:text="${order.id}"></span></h2>
-                    <a href="/user/order" class="btn btn-outline-primary">
+                    <a href="/order/history" class="btn btn-outline-primary">
                         <i class="bi bi-arrow-left"></i> Kembali ke Daftar Pesanan
                     </a>
                 </div>
@@ -129,7 +129,7 @@
                                     <div class="col-md-6">
                                         <p><strong>Status:</strong> <span class="status-badge" th:classappend="' status-' + ${order.status.toLowerCase()}" th:text="${order.status}"></span></p>
                                         <p><strong>Tanggal Pesanan:</strong> <span th:text="${#temporals.format(order.orderDate, 'dd MMMM yyyy HH:mm')}"></span></p>
-                                        <p><strong>Total Harga:</strong> Rp <span th:text="${#numbers.formatDecimal(order.total, 0, 'COMMA', 2, 'POINT')}"></span></p>
+                                        <p><strong>Total Harga:</strong> Rp <span th:text="${order.total != null ? #numbers.formatDecimal(order.total, 0, 'POINT', 0, 'COMMA') : '-'}"></span></p>
                                     </div>
                                 </div>
                             </div>
@@ -141,12 +141,12 @@
                                 <h4 class="card-title mb-4">Detail Pembayaran</h4>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <p><strong>Uang Muka:</strong> Rp <span th:text="${order.downPayment != null ? #numbers.formatDecimal(order.downPayment, 0, 'COMMA', 2, 'POINT') : '-'}"></span></p>
-                                        <p><strong>Sisa Pembayaran:</strong> Rp <span th:text="${order.total != null && order.downPayment != null ? #numbers.formatDecimal(order.total.subtract(order.downPayment), 0, 'COMMA', 2, 'POINT') : '-'}"></span></p>
+                                        <p><strong>Uang Muka:</strong> Rp <span th:text="${order.downPayment != null ? #numbers.formatDecimal(order.downPayment, 0, 'POINT', 0, 'COMMA') : '-'}"></span></p>
+                                        <p><strong>Sisa Pembayaran:</strong> Rp <span th:text="${order.total != null && order.downPayment != null ? #numbers.formatDecimal(order.total.subtract(order.downPayment), 0, 'POINT', 0, 'COMMA') : '-'}"></span></p>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><strong>Jangka Waktu:</strong> <span th:text="${order.installmentPeriod}"></span> Bulan</p>
-                                        <p><strong>Cicilan per Bulan:</strong> Rp <span th:text="${order.total != null && order.downPayment != null && order.installmentPeriod != null && order.installmentPeriod > 0 ? #numbers.formatDecimal(order.total.subtract(order.downPayment).divide(new java.math.BigDecimal(order.installmentPeriod)), 0, 'COMMA', 2, 'POINT') : '-'}"></span></p>
+                                        <p><strong>Jangka Waktu:</strong> <span th:text="${order.installmentPeriod != null ? order.installmentPeriod + ' Bulan' : '-'}"></span></p>
+                                        <p><strong>Cicilan per Bulan:</strong> Rp <span th:text="${order.total != null && order.downPayment != null && order.installmentPeriod != null && order.installmentPeriod > 0 ? #numbers.formatDecimal(order.total.subtract(order.downPayment).divide(new java.math.BigDecimal(order.installmentPeriod)), 0, 'POINT', 0, 'COMMA') : '-'}"></span></p>
                                     </div>
                                 </div>
                             </div>
