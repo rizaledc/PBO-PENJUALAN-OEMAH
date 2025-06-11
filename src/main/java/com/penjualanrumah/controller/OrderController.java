@@ -20,6 +20,8 @@ import org.slf4j.LoggerFactory;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 @Controller
 public class OrderController {
@@ -37,6 +39,13 @@ public class OrderController {
         HOUSE_PRICES.put(Order.HouseType.TYPE_36, new BigDecimal("150000000"));
         HOUSE_PRICES.put(Order.HouseType.TYPE_47, new BigDecimal("200000000"));
         HOUSE_PRICES.put(Order.HouseType.TYPE_57, new BigDecimal("250000000"));
+    }
+
+    private String formatCurrencyForPdf(BigDecimal amount) {
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+        formatter.setMinimumFractionDigits(0);
+        formatter.setMaximumFractionDigits(0);
+        return formatter.format(amount);
     }
 
     @GetMapping("/order")
@@ -184,15 +193,33 @@ public class OrderController {
             statusParagraph.add(statusChunk);
             document.add(statusParagraph);
             document.add(new com.itextpdf.text.Paragraph("Tanggal Pesanan: " + (order.getOrderDate() != null ? order.getOrderDate().toString() : "-"), labelFont));
-            document.add(new com.itextpdf.text.Paragraph("Total Harga: " + (order.getTotal() != null ? "Rp " + order.getTotal().toString() : "-"), labelFont));
+            document.add(new com.itextpdf.text.Paragraph("Total Harga: " + (order.getTotal() != null ? formatCurrencyForPdf(order.getTotal()) : "-"), labelFont));
             document.add(new com.itextpdf.text.Paragraph(" "));
             document.add(new com.itextpdf.text.Paragraph("Detail Pembayaran", sectionFont));
-            document.add(new com.itextpdf.text.Paragraph("Uang Muka: " + (order.getDownPayment() != null ? "Rp " + order.getDownPayment().toString() : "-"), labelFont));
-            document.add(new com.itextpdf.text.Paragraph("Sisa Pembayaran: " + (order.getTotal() != null && order.getDownPayment() != null ? "Rp " + order.getTotal().subtract(order.getDownPayment()).toString() : "-"), labelFont));
+            document.add(new com.itextpdf.text.Paragraph("Uang Muka: " + (order.getDownPayment() != null ? formatCurrencyForPdf(order.getDownPayment()) : "-"), labelFont));
+            document.add(new com.itextpdf.text.Paragraph("Sisa Pembayaran: " + (order.getTotal() != null && order.getDownPayment() != null ? formatCurrencyForPdf(order.getTotal().subtract(order.getDownPayment())) : "-"), labelFont));
             document.add(new com.itextpdf.text.Paragraph("Jangka Waktu: " + (order.getInstallmentPeriod() != null ? order.getInstallmentPeriod() + " Bulan" : "-"), labelFont));
-            document.add(new com.itextpdf.text.Paragraph("Cicilan per Bulan: " + (order.getTotal() != null && order.getDownPayment() != null && order.getInstallmentPeriod() != null && order.getInstallmentPeriod() > 0 ? "Rp " + order.getTotal().subtract(order.getDownPayment()).divide(new java.math.BigDecimal(order.getInstallmentPeriod()), 2, java.math.RoundingMode.HALF_UP).toString() : "-"), labelFont));
+
+            String installmentAmountText = "-";
+            if (order.getPaymentType() == com.penjualanrumah.model.Order.PaymentType.INSTALLMENTS &&
+                order.getTotal() != null &&
+                order.getDownPayment() != null &&
+                order.getInstallmentPeriod() != null &&
+                order.getInstallmentPeriod() > 0) {
+                try {
+                    BigDecimal remaining = order.getTotal().subtract(order.getDownPayment());
+                    BigDecimal installmentPeriodBd = new BigDecimal(order.getInstallmentPeriod());
+                    BigDecimal installmentAmount = remaining.divide(installmentPeriodBd, 0, java.math.RoundingMode.HALF_UP);
+                    installmentAmountText = formatCurrencyForPdf(installmentAmount);
+                } catch (ArithmeticException e) {
+                    logger.error("Error saat menghitung cicilan per bulan untuk order id {}: {}", order.getId(), e.getMessage(), e);
+                    installmentAmountText = "Error";
+                }
+            }
+            document.add(new com.itextpdf.text.Paragraph("Cicilan per Bulan: " + installmentAmountText, labelFont));
             document.close();
         } catch (Exception e) {
+            logger.error("Exception saat membuat PDF untuk order id {}: {}", orderId, e.getMessage(), e);
             try {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Gagal membuat PDF: " + e.getMessage());
             } catch (Exception ignored) {}
