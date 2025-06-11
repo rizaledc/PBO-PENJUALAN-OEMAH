@@ -1,10 +1,10 @@
-# <h1 align="center">TUGAS BESAR PBO/OOP - PENJUALAN RUMAH</h1>
-<p align="center">RIZAL WAHYU PRATAMA (2311110029)</p>
-<p align="center">KHULIKA MALKAN (2311110057)</p>
-<p align="center">MIKHAEL SETIA BUDI (2311110033)</p>
-<p align="center">WISNU AJI SANJAYA (2311110036)</p>
-<p align="center">YOKA RAMADANI (2311110060)</p>
-<p align="center">FAHMI HIDAYAT (2311110063)</p>
+# <h1 align="center">APLIKASI PENJUALAN RUMAH BERBASIS JAVA</h1>
+<p align="center">Rizal Wahyu Pratama (2311110029)</p>
+<p align="center">Khulika Malkan (2311110057)</p>
+<p align="center">Mikhael Setia Budi (2311110033)</p>
+<p align="center">Wisnu Aji Sanjaya (2311110036)</p>
+<p align="center">Yoka Ramadani (2311110060)</p>
+<p align="center">Fahmi Hidayat (2311110063)</p>
 
 ## Daftar Isi
 - [Konsep Penting](#konsep-penting)
