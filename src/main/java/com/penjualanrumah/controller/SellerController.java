@@ -101,6 +101,13 @@ public class SellerController {
                     .toList();
             }
 
+            // Sorting: username ASC, paymentType ASC, orderDate ASC
+            orders = orders.stream()
+                .sorted(java.util.Comparator.comparing((Order o) -> o.getCustomer() != null ? o.getCustomer().getUsername() : "")
+                    .thenComparing(o -> o.getPaymentType() != null ? o.getPaymentType().name() : "")
+                    .thenComparing(Order::getOrderDate))
+                .toList();
+
             model.addAttribute("orders", orders);
             model.addAttribute("selectedCustomer", customer);
             model.addAttribute("selectedRegion", region);
