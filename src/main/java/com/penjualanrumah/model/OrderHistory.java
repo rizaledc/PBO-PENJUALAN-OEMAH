@@ -5,11 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "order_history")
-public class OrderHistory {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class OrderHistory extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
@@ -29,14 +25,6 @@ public class OrderHistory {
     }
 
     // Getter dan Setter
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Order getOrder() {
         return order;
     }

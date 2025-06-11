@@ -6,11 +6,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "orders")
-public class Order {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class Order extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private User customer;
@@ -43,14 +39,6 @@ public class Order {
     }
 
     // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public User getCustomer() {
         return customer;
     }
