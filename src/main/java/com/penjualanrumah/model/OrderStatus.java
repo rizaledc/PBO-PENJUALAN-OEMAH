@@ -5,11 +5,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "order_status")
-public class OrderStatus {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class OrderStatus extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;

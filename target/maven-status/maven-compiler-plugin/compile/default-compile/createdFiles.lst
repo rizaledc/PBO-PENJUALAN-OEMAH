@@ -22,6 +22,7 @@ com\penjualanrumah\model\OrderStatus.class
 com\penjualanrumah\model\OrderHistory$Status.class
 com\penjualanrumah\repository\OrderStatusRepository.class
 com\penjualanrumah\controller\UserController.class
+com\penjualanrumah\model\BaseEntity.class
 com\penjualanrumah\model\OrderStatus$Status.class
 com\penjualanrumah\model\User$UserRole.class
 com\penjualanrumah\PenjualanRumahApplication.class
