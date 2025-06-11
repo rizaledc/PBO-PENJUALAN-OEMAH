@@ -46,8 +46,10 @@ public class DashboardController {
                 model.addAttribute("totalOrders", orders.size());
                 long approvedCount = orders.stream().filter(o -> "APPROVED".equalsIgnoreCase(o.getStatus())).count();
                 long pendingCount = orders.stream().filter(o -> "PENDING".equalsIgnoreCase(o.getStatus())).count();
+                long rejectedCount = orders.stream().filter(o -> "REJECTED".equalsIgnoreCase(o.getStatus())).count();
                 model.addAttribute("approvedOrders", approvedCount);
                 model.addAttribute("pendingOrders", pendingCount);
+                model.addAttribute("rejectedOrders", rejectedCount);
             }
         }
         return "buyer_dashboard";

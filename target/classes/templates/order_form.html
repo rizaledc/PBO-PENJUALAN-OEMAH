@@ -115,12 +115,12 @@
                                             <label for="downPayment" class="form-label">Uang Muka (DP)</label>
                                             <div class="input-group">
                                                 <span class="input-group-text">Rp</span>
-                                                <input type="number" class="form-control" id="downPayment" name="downPayment" placeholder="Contoh: 50000000" required>
+                                                <input type="text" class="form-control" id="downPayment" name="downPayment" placeholder="Contoh: 50.000.000" required oninput="formatAndValidateDownPayment(this)">
                                             </div>
                                         </div>
                                         <div class="mb-3" id="installmentPeriodGroup" style="display: none;">
                                             <label for="installmentPeriod" class="form-label">Periode Kredit (bulan)</label>
-                                            <input type="number" class="form-control" id="installmentPeriod" name="installmentPeriod">
+                                            <input type="number" class="form-control" id="installmentPeriod" name="installmentPeriod" min="1" oninput="validateInstallmentPeriod(this)">
                                         </div>
                                         <div class="d-flex justify-content-end mt-4">
                                             <a href="/buyer/dashboard" class="btn btn-secondary me-2"><i class="bi bi-arrow-left-circle"></i> Kembali</a>
@@ -180,7 +180,8 @@
 
         function calculateSimulation() {
             const selectedHouseType = houseTypeSelect.value;
-            const downPayment = parseFloat(downPaymentInput.value) || 0;
+            const downPaymentRaw = downPaymentInput.value.replace(/[^0-9]/g, ''); // Hapus semua karakter non-digit
+            const downPayment = parseFloat(downPaymentRaw) || 0;
             
             const housePrice = housePrices[selectedHouseType] || 0;
             const remainingLoan = housePrice - downPayment;
@@ -190,21 +191,62 @@
             displayRemainingLoan.textContent = formatCurrency(remainingLoan);
         }
 
+        function formatAndValidateDownPayment(input) {
+            let value = input.value.replace(/[^0-9]/g, ''); // Hapus semua karakter non-digit
+            if (value) {
+                // Format sebagai mata uang
+                value = new Intl.NumberFormat('id-ID').format(value);
+                input.value = value;
+            }
+            
+            // Validasi: tidak boleh nol atau minus
+            const numericValue = parseFloat(input.value.replace(/[^0-9]/g, '')) || 0;
+            if (numericValue <= 0 && input.required) {
+                input.setCustomValidity('Uang Muka tidak boleh nol atau kurang dari nol.');
+            } else {
+                input.setCustomValidity('');
+            }
+            calculateSimulation();
+        }
+
+        function validateInstallmentPeriod(input) {
+            const numericValue = parseInt(input.value) || 0;
+            if (numericValue <= 0 && input.required) {
+                input.setCustomValidity('Periode Kredit harus lebih dari nol.');
+            } else {
+                input.setCustomValidity('');
+            }
+            calculateSimulation();
+        }
+
         paymentTypeSelect.addEventListener('change', function() {
             if (this.value === 'INSTALLMENTS') {
                 installmentPeriodGroup.style.display = 'block';
                 installmentPeriodInput.required = true;
+                validateInstallmentPeriod(installmentPeriodInput); // Validasi saat ditampilkan
             } else {
                 installmentPeriodGroup.style.display = 'none';
                 installmentPeriodInput.required = false;
+                installmentPeriodInput.setCustomValidity(''); // Hapus validasi jika disembunyikan
+            }
+            calculateSimulation();
+        });
+
+        // Panggil validasi awal saat halaman dimuat (jika ada nilai awal)
+        window.addEventListener('load', () => {
+            formatAndValidateDownPayment(downPaymentInput);
+            if (paymentTypeSelect.value === 'INSTALLMENTS') {
+                validateInstallmentPeriod(installmentPeriodInput);
             }
         });
 
-        houseTypeSelect.addEventListener('change', calculateSimulation);
-        downPaymentInput.addEventListener('input', calculateSimulation);
+        document.querySelector('form').addEventListener('submit', function() {
+            // Hapus format mata uang (titik dan Rp) sebelum submit
+            const downPaymentRaw = downPaymentInput.value.replace(/[^0-9]/g, '');
+            downPaymentInput.value = downPaymentRaw;
+        });
 
-        // Initial calculation on page load
-        calculateSimulation();
+        houseTypeSelect.addEventListener('change', calculateSimulation);
     </script>
 </body>
 </html> 

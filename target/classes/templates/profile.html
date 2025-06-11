@@ -176,7 +176,7 @@
                             type="button"
                             onclick="togglePassword('oldPassword', this)"
                           >
-                            👁️
+                            <i class="bi bi-eye"></i>
                           </button>
                         </div>
                       </div>
@@ -197,7 +197,7 @@
                             type="button"
                             onclick="togglePassword('newPassword', this)"
                           >
-                            👁️
+                            <i class="bi bi-eye"></i>
                           </button>
                         </div>
                       </div>
@@ -218,7 +218,7 @@
                             type="button"
                             onclick="togglePassword('confirmPassword', this)"
                           >
-                            👁️
+                            <i class="bi bi-eye"></i>
                           </button>
                         </div>
                       </div>
@@ -240,7 +240,7 @@
                         <tr>
                           <th>No</th>
                           <th>Tipe Rumah</th>
-                          <th>Status</th>
+                          <th>Lokasi</th>
                           <th>Tanggal</th>
                         </tr>
                       </thead>
@@ -250,7 +250,7 @@
                             th:text="${iterStat.index + 1 + (currentPage * 3)}"
                           ></td>
                           <td th:text="${order.houseType}"></td>
-                          <td><span class="badge bg-warning">Pending</span></td>
+                          <td th:text="${order.region}"></td>
                           <td
                             th:text="${#temporals.format(order.orderDate, 'dd-MM-yyyy')}"
                           ></td>
@@ -315,10 +315,10 @@
         const input = document.getElementById(id);
         if (input.type === "password") {
           input.type = "text";
-          btn.innerText = "🙈";
+          btn.innerHTML = "<i class=\"bi bi-eye-slash\"></i>";
         } else {
           input.type = "password";
-          btn.innerText = "👁️";
+          btn.innerHTML = "<i class=\"bi bi-eye\"></i>";
         }
       }
     </script>
