@@ -6,8 +6,6 @@
 <p align="center">YOKA RAMADANI (2311110060)</p>
 <p align="center">FAHMI HIDAYAT (2311110063)</p>
 
-Proyek ini adalah bagian dari mata kuliah PASD yang dikembangkan oleh Kelompok WeCan. Repositori ini berisi kode sumber untuk sistem informasi yang mencakup modul-modul penting serta alur kerja aplikasinya.
-
 ## Daftar Isi
 - [Konsep Penting](#konsep-penting)
 - [Instalasi & Setup](#instalasi--setup)
