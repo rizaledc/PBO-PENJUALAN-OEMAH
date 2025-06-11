@@ -66,7 +66,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <p><strong>Jangka Waktu:</strong> <span th:text="${order.installmentPeriod != null ? order.installmentPeriod + ' Bulan' : '-'}"></span></p>
-                                        <p><strong>Cicilan per Bulan:</strong> Rp <span th:text="${order.total != null && order.downPayment != null && order.installmentPeriod != null && order.installmentPeriod > 0 ? #numbers.formatDecimal(order.total.subtract(order.downPayment).divide(new java.math.BigDecimal(order.installmentPeriod)), 0, 'POINT', 0, 'COMMA') : '-'}"></span></p>
+                                        <p><strong>Cicilan per Bulan:</strong> Rp <span th:with="remaining=${order.total != null && order.downPayment != null ? order.total.subtract(order.downPayment) : null}, 
+                                                                                        period=${order.installmentPeriod != null && order.installmentPeriod > 0 ? order.installmentPeriod : null}"
+                                                                                        th:text="${remaining != null && period != null ? #numbers.formatDecimal(remaining.divide(new java.math.BigDecimal(period), 0, T(java.math.RoundingMode).CEILING), 0, 'POINT', 0, 'COMMA') : '-'}"></span></p>
                                     </div>
                                 </div>
                             </div>

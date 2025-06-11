@@ -138,22 +138,45 @@ public class OrderController {
             Model model
     ) {
         try {
+            logger.info("Memulai load detail order untuk id: {}", orderId);
+            
             Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Pesanan tidak ditemukan"));
+            
+            logger.info("Order ditemukan: id={}, total={}, downPayment={}, installmentPeriod={}", 
+                order.getId(), order.getTotal(), order.getDownPayment(), order.getInstallmentPeriod());
 
             if (order.getCustomer() == null) {
                 logger.error("Customer pada order id {} null", orderId);
                 model.addAttribute("error", "Data customer pada pesanan ini kosong.");
                 return "error";
             }
+            
             if (!order.getCustomer().getUsername().equals(userDetails.getUsername())) {
                 logger.error("User {} mencoba akses order {} milik {}", userDetails.getUsername(), orderId, order.getCustomer().getUsername());
                 model.addAttribute("error", "Anda tidak memiliki akses ke pesanan ini");
                 return "error";
             }
 
-            logger.info("Order detail loaded: {}", order);
+            // Defensive programming for installment orders
+            if (order.getPaymentType() == Order.PaymentType.INSTALLMENTS) {
+                if (order.getInstallmentPeriod() == null || order.getInstallmentPeriod() <= 0) {
+                    logger.warn("Pesanan cicilan {} memiliki installmentPeriod null atau nol. Mengatur ke 1 untuk mencegah error tampilan.", orderId);
+                    order.setInstallmentPeriod(1);
+                }
+                
+                // Log perhitungan cicilan
+                if (order.getTotal() != null && order.getDownPayment() != null && order.getInstallmentPeriod() != null) {
+                    BigDecimal remaining = order.getTotal().subtract(order.getDownPayment());
+                    BigDecimal installmentPeriodBd = new BigDecimal(order.getInstallmentPeriod());
+                    BigDecimal installmentAmount = remaining.divide(installmentPeriodBd, 0, java.math.RoundingMode.CEILING);
+                    logger.info("Perhitungan cicilan: total={}, downPayment={}, remaining={}, period={}, installmentAmount={}", 
+                        order.getTotal(), order.getDownPayment(), remaining, order.getInstallmentPeriod(), installmentAmount);
+                }
+            }
+
             model.addAttribute("order", order);
+            logger.info("Order detail berhasil dimuat untuk id: {}", orderId);
             return "order_detail";
         } catch (Exception e) {
             logger.error("Exception saat load detail order id {}: {}", orderId, e.getMessage(), e);
@@ -213,7 +236,7 @@ public class OrderController {
                 try {
                     BigDecimal remaining = order.getTotal().subtract(order.getDownPayment());
                     BigDecimal installmentPeriodBd = new BigDecimal(order.getInstallmentPeriod());
-                    BigDecimal installmentAmount = remaining.divide(installmentPeriodBd, 0, java.math.RoundingMode.HALF_UP);
+                    BigDecimal installmentAmount = remaining.divide(installmentPeriodBd, 0, java.math.RoundingMode.CEILING);
                     installmentAmountText = formatCurrencyForPdf(installmentAmount);
                 } catch (ArithmeticException e) {
                     logger.error("Error saat menghitung cicilan per bulan untuk order id {}: {}", order.getId(), e.getMessage(), e);
