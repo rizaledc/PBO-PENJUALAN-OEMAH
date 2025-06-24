@@ -22,12 +22,23 @@
 
 ## Tampilan Aplikasi
 - Menu Login
+  ![image](https://github.com/user-attachments/assets/355ca37c-adf6-4c0c-abe6-fed58d970e29)
+
 - Menu Register
+![image](https://github.com/user-attachments/assets/c4ccc7fa-805b-4338-8288-172a3d6f5386)
+
 
 - ### Aplikasi Pembeli
 - Dashboard Pembeli
+  ![image](https://github.com/user-attachments/assets/d322bab7-706f-473d-a0a9-4ef885c2e753)
+
 - Form Penjualan Rumah
+  ![image](https://github.com/user-attachments/assets/2eb50fdb-cdee-4fdb-b238-eab176e08d43)
+
 - Riwayat Pesanan Saya
+
+  ![image](https://github.com/user-attachments/assets/a447abe4-7d0c-4456-8192-bcd248fc168d)
+
 - Detail Pesanan
 - Unduh Pdf
 - Menu Profil
@@ -41,9 +52,9 @@
 
 ## Kontributor
 Proyek ini dikembangkan oleh Kelompok 01:
-- [Rizal Wahyu Pratama] - 
-- [Khulika Malkan] - 
-- [Mikhael Setia Budi] -
-- [Wisnu Aji Sanjaya] - 
-- [Yoka Ramadani] - 
-- [Fahmi Hidayat] - 
+- [Rizal Wahyu Pratama]
+- [Khulika Malkan]
+- [Mikhael Setia Budi]
+- [Wisnu Aji Sanjaya]
+- [Yoka Ramadani]
+- [Fahmi Hidayat]
