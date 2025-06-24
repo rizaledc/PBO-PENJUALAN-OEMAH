@@ -7,31 +7,37 @@
 <p align="center">Fahmi Hidayat (2311110063)</p>
 
 ## Daftar Isi
-- [Konsep Penting](#konsep-penting)
-- [Instalasi & Setup](#instalasi--setup)
-- [Cara Menjalankan Aplikasi](#cara-menjalankan-aplikasi)
+- [Alur Kerja Aplikasi](#Alur-Kerja-Aplikasi)
+- [Relasi antar Class](#Relasi-antar-Class)
+- [Tampilan Aplikasi](#Tampilan-Aplikasi)
 - [Kontributor](#kontributor)
 
-## Konsep Penting
-- *Inheritance:* Digunakan terutama pada *Model Data* untuk struktur yang jelas dan terorganisir. Fungsionalitas utama (logika bisnis) ditangani di bagian lain dari kode (misalnya, di controller/service layer).
+## Alur Kerja Aplikasi
+![image](https://github.com/user-attachments/assets/fb6bdad8-1a6a-4771-a7a0-3bfbf148cd5c)
 
-## Instalasi & Setup
-Untuk menjalankan proyek ini di lingkungan lokal Anda, ikuti langkah-langkah berikut:
-1.  *Clone Repositori:*
-    bash
-    git clone [[https://github.com/rizaledc/PBO-PENJUALAN-OEMAH.git](https://github.com/rizaledc/PBO-PENJUALAN-OEMAH.git)
-    
-2.  *Masuk ke Direktori Proyek:*
-    bash
-    cd Nama-Folder-Proyek-Anda
-    
-3.  *Jalankan code di terminal:*
-        bash
-        mvn spring-boot:run
-        
-4.  *Buka Google Chorome/Browser lainnya:*
-    Aplikasi akan berjalan di http://localhost:8080/
 
+
+## Relasi antar Class
+![image](https://github.com/user-attachments/assets/2a38da9c-1155-4de9-9a72-4b54c8452639)
+
+## Tampilan Aplikasi
+- Menu Login
+- Menu Register
+
+- ### Aplikasi Pembeli
+- Dashboard Pembeli
+- Form Penjualan Rumah
+- Riwayat Pesanan Saya
+- Detail Pesanan
+- Unduh Pdf
+- Menu Profil
+
+- ### Aplikasi Pembeli
+- Dashboard Penjual
+- Daftar Pesanan
+- Daftar Pelanggan
+
+ 
 
 ## Kontributor
 Proyek ini dikembangkan oleh Kelompok 01:
