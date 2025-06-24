@@ -36,17 +36,26 @@
   ![image](https://github.com/user-attachments/assets/2eb50fdb-cdee-4fdb-b238-eab176e08d43)
 
 - Riwayat Pesanan Saya
-
   ![image](https://github.com/user-attachments/assets/a447abe4-7d0c-4456-8192-bcd248fc168d)
 
 - Detail Pesanan
+  ![image](https://github.com/user-attachments/assets/f77d5628-35c4-4924-b8a5-2561e593a236)
+
 - Unduh Pdf
+  ![image](https://github.com/user-attachments/assets/016d39bf-8a6a-4515-aee9-1a235be5efb2)
+
 - Menu Profil
+![image](https://github.com/user-attachments/assets/8804b293-2af0-463b-b7e9-e0c148ea935a)
 
 - ### Aplikasi Pembeli
 - Dashboard Penjual
+  ![image](https://github.com/user-attachments/assets/e5e67a57-a969-46ca-9b92-c2ee162e8702)
+
 - Daftar Pesanan
+  ![image](https://github.com/user-attachments/assets/5d33523e-eeb7-4456-a6f3-85e151931206)
+
 - Daftar Pelanggan
+![image](https://github.com/user-attachments/assets/f9ebc90d-9353-44b9-b696-89d85f3f1fe3)
 
  
 
